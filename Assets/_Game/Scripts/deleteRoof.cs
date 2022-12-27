@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deleteRoof : MonoBehaviour
+public class DeleteRoof : MonoBehaviour
 {
     private int length;
     private List<GameObject> lista = new List<GameObject>();
