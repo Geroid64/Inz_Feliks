@@ -5,12 +5,15 @@ using UnityEngine;
 public class ScriptRessourceManager : MonoBehaviour
 {
     #region Values
-    public UIDefault ui_default;
+    public GameObject player;
+    private GeneralFunctionsStats Gf_stats;
+
+    [SerializeField] private UIDefault ui_default;
+
     int wood_amount, stone_amount, metal_amount, wool_amount;
     int money;
     public int max_amount, max_money;
-    public GameObject player;
-    private GeneralFunctionsStats Gf_stats;
+
     #endregion
 
     void Start()
@@ -64,7 +67,7 @@ public class ScriptRessourceManager : MonoBehaviour
                 break;
             case "stone":
                 stone_amount = Gf_stats.CheckMinAmount(stone_amount, amount);
-                ui_default.UIUpdateLabel("Llife", stone_amount);
+                ui_default.UIUpdateLabel("Lstone", stone_amount);
                 break;
             case "metal":
                 metal_amount = Gf_stats.CheckMinAmount(metal_amount, amount);

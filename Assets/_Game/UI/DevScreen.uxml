@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="height: 51px; width: 178px; align-items: flex-start; justify-content: flex-end; transform-origin: left top; flex-direction: row-reverse; opacity: 1; left: 5%; top: 5%;">
+        <ui:Label text="Health:" display-tooltip-when-elided="true" name="Llife" style="align-items: flex-start;" />
+        <ui:Button text="take20dmg" display-tooltip-when-elided="true" name="Btake_damage" style="-unity-background-image-tint-color: rgb(154, 100, 64); background-color: rgb(171, 97, 70); -unity-slice-left: 10; -unity-slice-top: 10; -unity-slice-right: 10; -unity-slice-bottom: 10; justify-content: flex-start; align-items: auto;" />
+        <ui:Button text="Get ressource" display-tooltip-when-elided="true" name="Bressource" style="background-color: rgb(0, 144, 37);" />
+    </ui:VisualElement>
+    <ui:VisualElement style="top: 30%;">
+        <ui:Label text="Testing" display-tooltip-when-elided="true" />
+    </ui:VisualElement>
+    <ui:VisualElement style="align-items: auto; left: auto;">
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="Lmoney" style="-unity-text-align: upper-left; background-color: rgba(255, 242, 107, 255); color: rgba(0, 0, 0, 255);" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="Lwood" style="color: rgba(0, 0, 0, 255); background-color: rgba(152, 91, 0, 255); height: 14px;" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="Lstone" style="-unity-background-image-tint-color: rgba(91, 91, 91, 255);" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="Lmetal" style="color: rgba(0, 0, 0, 255);" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="Lwool" style="color: rgba(0, 0, 0, 255); background-color: rgba(226, 226, 226, 255);" />
+    </ui:VisualElement>
+</ui:UXML>
