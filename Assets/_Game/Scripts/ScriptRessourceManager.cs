@@ -43,6 +43,7 @@ public class ScriptRessourceManager : MonoBehaviour
                 break;
             case "stone":
                 stone_amount = Gf_stats.CheckMaxAmount(stone_amount, amount, max_amount);
+                ui_default.UIUpdateLabel("Lstone", stone_amount);
                 break;
             case "metal":
                 metal_amount = Gf_stats.CheckMaxAmount(metal_amount, amount, max_amount);
@@ -67,7 +68,7 @@ public class ScriptRessourceManager : MonoBehaviour
                 break;
             case "stone":
                 stone_amount = Gf_stats.CheckMinAmount(stone_amount, amount);
-                ui_default.UIUpdateLabel("Lstone", stone_amount);
+
                 break;
             case "metal":
                 metal_amount = Gf_stats.CheckMinAmount(metal_amount, amount);
