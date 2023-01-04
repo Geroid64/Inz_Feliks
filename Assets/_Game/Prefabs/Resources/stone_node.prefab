@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0.5
-  ressource:
+  resource:
   - {fileID: 1501727785838171164, guid: 758275076606a9c4dba4c0fd430d958f, type: 3}
   node_life: 10

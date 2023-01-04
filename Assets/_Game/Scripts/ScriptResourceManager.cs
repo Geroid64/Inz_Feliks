@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScriptRessourceManager : MonoBehaviour
+public class ScriptResourceManager : MonoBehaviour
 {
     #region Values
     public GameObject player;
@@ -22,18 +22,18 @@ public class ScriptRessourceManager : MonoBehaviour
         stone_amount = 25;
     }
 
-    #region Creating Ressources
+    #region Creating Resources
     //NEED: save mechanic to create from save file
     #endregion
 
-    #region Reading Ressources
+    #region Reading Resources
     //NEED: UI element for values
     #endregion
     
-    #region Updating Ressources
-    public void GainRessources(string ressource, int amount)
+    #region Updating Resources
+    public void GainResources(string resource, int amount)
     {
-        switch (ressource)
+        switch (resource)
         {
             case "money":
                 money = Gf_stats.CheckMaxAmount(money, amount, max_money);
@@ -55,10 +55,10 @@ public class ScriptRessourceManager : MonoBehaviour
     }
     #endregion
 
-    #region Deleting Ressources
-    public void DeleteRessources(string ressource, int amount)
+    #region Deleting Resources
+    public void DeleteResources(string resource, int amount)
     {
-        switch (ressource)
+        switch (resource)
         {
             case "money":
                 money = Gf_stats.CheckMinAmount(money , amount);

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RessourcePickUp : MonoBehaviour
+public class ResourcePickUp : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponentInParent<ScriptRessourceManager>().GainRessources("stone", 5);
+            other.GetComponentInParent<ScriptResourceManager>().GainResources("stone", 5);
             Destroy(this.gameObject);
         }
     }

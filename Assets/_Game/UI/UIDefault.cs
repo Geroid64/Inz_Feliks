@@ -24,7 +24,7 @@ public class UIDefault : MonoBehaviour
             take_dmg = ui_doc.rootVisualElement.Q("Btake_damage") as Button;
             take_dmg.clicked += () => player.GetComponent<ScriptHealth>().GainStat("health", 20);
             get_ressource = ui_doc.rootVisualElement.Q("Bressource") as Button;
-            get_ressource.clicked += () => player.GetComponent<ScriptRessourceManager>().GainRessources("stone", 5);
+            get_ressource.clicked += () => player.GetComponent<ScriptResourceManager>().GainResources("stone", 5);
             UIUpdateLabel("Lmoney", 20);
             UIUpdateLabel("Lwood", 20);
             //UIUpdateLabel("Lstone", 10);

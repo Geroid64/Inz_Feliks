@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RessourceNode : MonoBehaviour
+public class ResourceNode : MonoBehaviour
 {
     public float time = 0.3f;
-    public List<GameObject> ressource = new List<GameObject>();
+    public List<GameObject> resource = new List<GameObject>();
     public int node_life;
     bool stop = false;
 
@@ -14,7 +14,7 @@ public class RessourceNode : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             stop = false;
-            StartCoroutine(SpawnRessource());
+            StartCoroutine(SpawnResource());
         }
     }
 
@@ -26,7 +26,7 @@ public class RessourceNode : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnRessource()
+    IEnumerator SpawnResource()
     {
 
         for (int i = node_life; i > 0; i--)
@@ -47,12 +47,10 @@ public class RessourceNode : MonoBehaviour
 
     public void SpawnOne()
     {
-        GameObject ress = Instantiate(ressource[Random.Range(0, ressource.Count)]);
-        ress.transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
-        Rigidbody ressrb = ress.GetComponent<Rigidbody>();
+        GameObject res = Instantiate(resource[Random.Range(0, resource.Count)]);
+        res.transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
+        Rigidbody resrb = res.GetComponent<Rigidbody>();
         
-        ressrb.AddForce(Random.Range(-5f,5f), Random.Range(1f,2f), Random.Range(-5f,5f), ForceMode.Impulse);
-
-
+        resrb.AddForce(Random.Range(-5f,5f), Random.Range(1f,2f), Random.Range(-5f,5f), ForceMode.Impulse);
     }
 }
