@@ -2016,6 +2016,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 557929369}
+  default_camera_size: 7.8
+  target_size: 20
+  time_change_s: 3
+  time_return_s: 1
 --- !u!65 &389333140
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2037,7 +2041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389333138}
   m_LocalRotation: {x: -0, y: 0.25586328, z: -0, w: 0.966713}
-  m_LocalPosition: {x: -13.99, y: 3.09, z: -7.24}
+  m_LocalPosition: {x: -10.9, y: 3.09, z: -11.4}
   m_LocalScale: {x: 25.968489, y: 6.0434, z: 6.0434}
   m_ConstrainProportionsScale: 0
   m_Children: []
