@@ -11,7 +11,6 @@ public class ScriptHealth : MonoBehaviour
 
     public int hp = 50;
     public int max_hp = 100;
-    public int dmg = 20;
     #endregion
 
     void Start()
@@ -27,8 +26,8 @@ public class ScriptHealth : MonoBehaviour
             Died();
         else
         {
-            hp -= dmg;
-            Debug.Log("+++++++++++++++++took"+ dmg +"dmg");
+            hp -= damage;
+            Debug.Log("+++++++++++++++++took"+ damage +"dmg");
             ui_default.UIUpdateLabel("Llife",hp);
         }
     }
@@ -51,11 +50,22 @@ public class ScriptHealth : MonoBehaviour
             case "speed":
                 GetComponent<PlayerMovement>().speed += amount;
                 break;
+        }
+    }
+
+    public void Suffer(string stat, int amount)
+    {
+        switch (stat)
+        {
             case "damage":
                 TakeDamage(amount);
                 break;
             case "slow":
                 GetComponent<PlayerMovement>().speed -= amount;
+                break;
+            case "break":
+                TakeDamage(amount);
+                GetComponent<PlayerMovement>().speed -= amount/2;
                 break;
         }
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerSee
   - Inside
+  - Player_component
   layers:
   - Default
   - TransparentFX
