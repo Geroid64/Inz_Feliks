@@ -9,7 +9,7 @@ public class ResourcePickUp : MonoBehaviour
     #endregion
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             other.GetComponentInParent<ScriptResourceManager>().GainResources("stone", resource_amount);
             Destroy(this.gameObject);

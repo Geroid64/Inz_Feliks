@@ -15,7 +15,7 @@ public class OnHiddenSeeThrough : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, (sphere.transform.position - cam.transform.position).normalized, out raycast, Mathf.Infinity, ~mask))
         {
 
-            if (raycast.collider.gameObject.tag == tagname)
+            if (raycast.collider.gameObject.CompareTag(tagname))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * raycast.distance, Color.green);
                 Debug.Log("Did Hit: " + raycast.collider.gameObject.name);
