@@ -66,7 +66,8 @@ public class EnemySimple : MonoBehaviour
     {
         while(true)
         {
-            dest = new Vector3(Random.Range(0, 10), 0, Random.Range(0, 10));
+            dest = RandomNavSphere(transform.position, 10);
+            //dest = new Vector3(Random.Range(0, 10), 0, Random.Range(0, 10));
             Debug.Log("EEEEEEEHHHHH");
             navMesh.destination = dest;
             yield return new WaitForSeconds(3);
@@ -74,9 +75,16 @@ public class EnemySimple : MonoBehaviour
 
     }
 
+    public static Vector3 RandomPointNavMesh(Vector3 start, float range)
+    {
+        NavMeshHit is_nav;
+        Vector3 direction = Random.insideUnitSphere * range;
+        direction += start;
+        NavMesh.SamplePosition(direction, out is_nav, range, NavMesh.AllAreas);
+        return is_nav.position;
+    }
 
-
-    public void EnemyMood(string state)
+        public void EnemyMood(string state)
     {
         switch (state)
         {

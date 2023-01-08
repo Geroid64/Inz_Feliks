@@ -108,11 +108,11 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2.44
-    agentSlope: 41.8
-    agentClimb: 0.4
+    agentSlope: 36.3
+    agentClimb: 0.45
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    minRegionArea: 2
+    minRegionArea: 10
     manualCellSize: 0
     cellSize: 0.16666667
     manualTileSize: 0
@@ -1930,8 +1930,8 @@ GameObject:
   m_Name: healthStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!136 &316690526
 CapsuleCollider:
@@ -3248,6 +3248,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_box_wood_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3905,7 +3913,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 800
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1.25
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4365,6 +4373,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_box_wood_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4489,12 +4505,12 @@ GameObject:
   - component: {fileID: 1339512856}
   - component: {fileID: 1339512855}
   - component: {fileID: 1339512854}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1339512854
 BoxCollider:
@@ -4567,7 +4583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339512853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.76, y: 2.29, z: 1.44}
+  m_LocalPosition: {x: -16.5, y: 2.29, z: 1.44}
   m_LocalScale: {x: 0.656575, y: 4.231757, z: 8.989825}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4695,6 +4711,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_box_wood_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab945ff7c1d59bb4a8b506cb8c7dafcd, type: 3}
       propertyPath: m_RootOrder
@@ -5157,6 +5181,14 @@ PrefabInstance:
     - target: {fileID: 8918702299259086557, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
       propertyPath: m_Name
       value: stone_node
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918702299259086557, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918702299259086557, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
@@ -5967,8 +5999,8 @@ GameObject:
   m_Name: TestWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &2084351530
 BoxCollider:
