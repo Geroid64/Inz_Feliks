@@ -11,18 +11,23 @@ public class EnemySimple : MonoBehaviour
     public RaycastHit raycast;
     public LayerMask mask;
     public Vector3 vector = new Vector3(0, 0, 0);
-    public Transform dest;
-
+    public Vector3 dest;
+    public bool PlayerNotFound = true;
     private NavMeshAgent navMesh;
-
+    private Coroutine routine=null;
     private void Awake()
     {
         navMesh = GetComponentInParent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        routine = StartCoroutine(Scan(dest));
+
+    }
     private void Update()
     {
-        navMesh.destination = dest.position;
+
 
     }
 
@@ -30,11 +35,15 @@ public class EnemySimple : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerNotFound = false;
             Debug.Log("WWWW");
             if (Physics.Raycast(transform.position+vector, (other.transform.position - transform.position).normalized, out raycast, Mathf.Infinity,~mask))
             {
                 if (raycast.collider.gameObject.CompareTag("Player")|| raycast.collider.gameObject.CompareTag("PlayerSee"))
                 {
+                    
+                    //StopCoroutine(routine);
+                    navMesh.destination = other.gameObject.transform.position;
                     Debug.Log("WWWWWWWIDAC" + raycast.collider.gameObject.name);
                     Debug.DrawRay(transform.position+vector, (other.transform.position - transform.position), Color.black);
                 }
@@ -43,14 +52,29 @@ public class EnemySimple : MonoBehaviour
                 {
                     Debug.Log("WWWWWWW===NIEEEEE--IDAC" + raycast.collider.gameObject.name);
                     Debug.DrawRay(transform.position+vector, (other.transform.position - transform.position), Color.white);
+                    PlayerNotFound = true;
+                    //routine = StartCoroutine(Scan(dest));
                 }
             }
 
 
                 
         }
+    }
+
+    IEnumerator Scan(Vector3 dest)
+    {
+        while(true)
+        {
+            dest = new Vector3(Random.Range(0, 10), 0, Random.Range(0, 10));
+            Debug.Log("EEEEEEEHHHHH");
+            navMesh.destination = dest;
+            yield return new WaitForSeconds(3);
+        }
 
     }
+
+
 
     public void EnemyMood(string state)
     {
@@ -67,10 +91,6 @@ public class EnemySimple : MonoBehaviour
             case "scared":
                 break;
         }
-
-
-
-
     }
 
 }
