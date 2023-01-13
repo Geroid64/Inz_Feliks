@@ -8,11 +8,12 @@ public class HpDmgStatPickUp : MonoBehaviour
     public int amount = 5;
     public bool is_damage = false;
     public string type = "health";
+    public string tag_to_find = "Player";
     #endregion
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag(tag_to_find))
         {
             //health
             if(!is_damage)
@@ -20,7 +21,8 @@ public class HpDmgStatPickUp : MonoBehaviour
             //damage
             else
                 other.GetComponent<ScriptHealth>().Suffer(type, amount);
-            Destroy(this.gameObject);
+
         }
+        Destroy(this.gameObject);
     }
 }

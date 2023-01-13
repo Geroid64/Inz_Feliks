@@ -13,9 +13,11 @@ public class EnemySimple : MonoBehaviour
     public Vector3 vector = new Vector3(0, 0, 0);
     public Vector3 dest;
 
-    private bool coroutine_start = true;
-    private bool coroutine_attack = true;
     private NavMeshAgent navMesh;
+
+    private bool coroutine_start = true;
+    private bool coroutine_attack = false;
+
     private Coroutine routine = null;
     private Coroutine routine_attack = null;
 
@@ -32,26 +34,21 @@ public class EnemySimple : MonoBehaviour
         lineee = GetComponent<LineRenderer>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            coroutine_attack = false;
-
-            coroutine_start = false;
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
-            routine = StartCoroutine(Scan(dest));
-
+            lineee.enabled = false;
             if (routine_attack != null)
             {
+                coroutine_attack = false;
                 StopCoroutine(routine_attack);
+            }
+
+            if (coroutine_start == false)
+            {
+                coroutine_start = true;
+                routine = StartCoroutine(Scan(dest));
             }
         }
     }
@@ -62,11 +59,17 @@ public class EnemySimple : MonoBehaviour
         {
             if (Physics.Raycast(transform.position+vector, (other.transform.position - transform.position).normalized, out raycast, Mathf.Infinity,~mask))
             {
-                //Debug.Log("HELP++CZY TRAFIA: " + Physics.Raycast(transform.position + vector, (other.transform.position - transform.position).normalized, out raycast, Mathf.Infinity, ~mask));
                 if (raycast.collider.gameObject.CompareTag("Player")|| raycast.collider.gameObject.CompareTag("PlayerSee"))
                 {
                     Debug.Log("HELP==WIDZI");
-                    if(coroutine_attack==false)
+                    
+                    if (routine != null)
+                    {
+                        StopCoroutine(routine);
+                        coroutine_start = false;
+                    }
+                    
+                    if (coroutine_attack==false)
                     {
                         coroutine_attack = true;
                         routine_attack = StartCoroutine(Attack(other.GetComponent<ScriptHealth>()));
@@ -74,28 +77,29 @@ public class EnemySimple : MonoBehaviour
 
                     navMesh.destination = other.gameObject.transform.position;
 
-                    transform.parent.transform.rotation= Quaternion.LookRotation(other.transform.position - transform.position, Vector3.up);
+                    transform.parent.transform.rotation = Quaternion.LookRotation(other.transform.position - transform.position, Vector3.up);
                 }
                 else
                 {
                     Debug.Log("HELP==NIE_WIDZI");
                     Debug.DrawRay(transform.position+vector, (other.transform.position - transform.position), Color.white);
+                    
                     if (routine_attack != null)
                     {
+                        coroutine_attack = false;
                         StopCoroutine(routine_attack);
                     }
+
                     if (coroutine_start == false)
                     {
                         coroutine_start = true;
                         routine = StartCoroutine(Scan(dest));
                     }
-
                 }
             }
-                
         }
     }
-
+    
     IEnumerator Scan(Vector3 dest)
     {
         while(coroutine_start)

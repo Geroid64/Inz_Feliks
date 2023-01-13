@@ -20,7 +20,6 @@ public class OnHiddenSeeThrough : MonoBehaviour
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * raycast.distance, Color.green);
                 Debug.Log("Did Hit: " + raycast.collider.gameObject.name);
                 sphere.SetActive(false);
-
             }
             else
             {

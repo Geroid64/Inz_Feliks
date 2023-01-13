@@ -11,6 +11,7 @@ public class ScriptHealth : MonoBehaviour
 
     public int hp = 50;
     public int max_hp = 100;
+    public bool is_plugged_to_ui = false;
     #endregion
 
     void Start()

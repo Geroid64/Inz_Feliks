@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour
     public Camera cam;
     private Vector3 Offset;
     public float CamSmooth = 0.1f;
-    private Vector3 mouselocation, screenSize, newPos;
+    public Vector3 mouselocation, screenSize, newPos;
     public float camsens = 0.05f;
     public float smooth = 0.1f;
     public float border = 1;
