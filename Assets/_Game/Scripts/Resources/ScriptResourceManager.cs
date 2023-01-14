@@ -12,7 +12,8 @@ public class ScriptResourceManager : MonoBehaviour
 
     int wood_amount, stone_amount, metal_amount, wool_amount;
     int money;
-    public int max_amount, max_money;
+    public int ammo_amount;
+    public int max_amount, max_money, max_ammo;
 
     #endregion
 
@@ -20,6 +21,7 @@ public class ScriptResourceManager : MonoBehaviour
     {
         Gf_stats = player.GetComponent<GeneralFunctionsStats>();
         stone_amount = 25;
+        ammo_amount = 60;
     }
 
     #region Creating Resources
@@ -35,6 +37,9 @@ public class ScriptResourceManager : MonoBehaviour
     {
         switch (resource)
         {
+            case "ammo":
+                ammo_amount = Gf_stats.CheckMaxAmount(ammo_amount, amount, max_ammo);
+                break;
             case "money":
                 money = Gf_stats.CheckMaxAmount(money, amount, max_money);
                 break;
@@ -60,6 +65,9 @@ public class ScriptResourceManager : MonoBehaviour
     {
         switch (resource)
         {
+            case "ammo":
+                ammo_amount = Gf_stats.CheckMinAmount(ammo_amount, amount);
+                break;
             case "money":
                 money = Gf_stats.CheckMinAmount(money , amount);
                 break;
@@ -68,7 +76,6 @@ public class ScriptResourceManager : MonoBehaviour
                 break;
             case "stone":
                 stone_amount = Gf_stats.CheckMinAmount(stone_amount, amount);
-
                 break;
             case "metal":
                 metal_amount = Gf_stats.CheckMinAmount(metal_amount, amount);
