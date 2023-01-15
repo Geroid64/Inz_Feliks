@@ -17,7 +17,11 @@ public class ScriptHealth : MonoBehaviour
     void Start()
     {
         Gf_stats = player.GetComponent<GeneralFunctionsStats>();
-        ui_default.UIUpdateLabel("Llife", hp);
+        if (ui_default!=null)
+        {
+            ui_default.UIUpdateLabel("Llife", hp);
+        }
+        
     }
 
     #region Health
@@ -29,13 +33,17 @@ public class ScriptHealth : MonoBehaviour
         {
             hp -= damage;
             Debug.Log("+++++++++++++++++took"+ damage +"dmg");
-            ui_default.UIUpdateLabel("Llife",hp);
+            if (ui_default != null)
+            {
+                ui_default.UIUpdateLabel("Llife", hp);
+            }
         }
     }
 
     public void Died()
     {
         Debug.Log("===============died");
+        Destroy(this.gameObject);
     }
     #endregion
 
@@ -46,7 +54,10 @@ public class ScriptHealth : MonoBehaviour
         {
             case "health":
                 hp = Gf_stats.CheckMaxAmount(hp, amount,max_hp);
-                ui_default.UIUpdateLabel("Llife",hp);
+                if (ui_default != null)
+                {
+                    ui_default.UIUpdateLabel("Llife", hp);
+                }
                 break;
             case "speed":
                 GetComponent<PlayerMovement>().speed += amount;

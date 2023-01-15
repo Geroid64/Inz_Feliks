@@ -84,7 +84,6 @@ public class WeaponBrain : MonoBehaviour
                     {
                         Debug.Log("RELOADED NO MORE BULLETS FOR YOU");
                     }
-
                 }
                 else
                 {
@@ -95,7 +94,6 @@ public class WeaponBrain : MonoBehaviour
             }
 
             Debug.Log("RELOADED THIS MUCH: " + (mag_size - mag_ammo) + "LEFT AMMO: " + ammo_temp.ammo_amount);
-
             Debug.Log("RELOADED IN MAG===:" + mag_ammo);
             can_shoot = true;
             is_reloading = false;

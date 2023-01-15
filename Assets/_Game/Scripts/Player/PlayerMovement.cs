@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float smooth = 0.1f;
     public float smooth_velocity;
     public Camera cam;
-    Vector3 forward, right, down;
+    Vector3 forward, right, down,screen_size;
 
     private void Start()
     {
@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
         forward = Vector3.Normalize(forward);
         controller.detectCollisions = false;
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
-        down.y = -1; 
+        down.y = -1;
+        screen_size = new Vector3(Screen.width, Screen.height, 0);
     }
 
     void Update()
@@ -31,6 +32,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         Vector3 iso_dir = new Vector3();
 
+        Plane plane = new Plane(Vector3.up, transform.position);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        float distance;
+
+        if (plane.Raycast(ray, out distance))
+        {
+            Vector3 point = ray.GetPoint(distance);
+            Quaternion rotation = Quaternion.LookRotation(point - transform.position);
+            transform.rotation = rotation;
+        }
+        
         if (!controller.isGrounded)
             iso_dir = horizontal * right + vertical * forward + down;
         else
@@ -38,10 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (iso_dir.magnitude >= 0.1f)
         {
-            float angle = Mathf.Atan2(iso_dir.x, iso_dir.z) * Mathf.Rad2Deg;
-            float smooth_angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, angle, ref smooth_velocity, smooth);
-
-            transform.rotation = Quaternion.Euler(0f, smooth_angle, 0f);
             if(sprint==true)
                 controller.Move(iso_dir * (speed+5) * Time.deltaTime);
             else
