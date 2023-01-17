@@ -56,4 +56,6 @@ public class PlayerMovement : MonoBehaviour
                 controller.Move(iso_dir * speed * Time.deltaTime);
         }
     }
+
+
 }

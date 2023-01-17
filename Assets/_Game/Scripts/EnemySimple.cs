@@ -139,5 +139,9 @@ public class EnemySimple : MonoBehaviour
         return is_nav.position;
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
 }

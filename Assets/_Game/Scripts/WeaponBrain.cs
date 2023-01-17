@@ -105,6 +105,13 @@ public class WeaponBrain : MonoBehaviour
     {
         Vector3 direction = transform.forward;
         GameObject spawned_bullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        spawned_bullet.transform.rotation *= Quaternion.AngleAxis(-90, Vector3.up);
         spawned_bullet.GetComponent<Rigidbody>().AddForce(direction * bullet_speed, ForceMode.Force);
     }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
 }

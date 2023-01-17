@@ -4,19 +4,19 @@ using UnityEngine;
 public class ScriptHealth : MonoBehaviour
 {
     #region Values
-    public GameObject player;
+    public GameObject actor;
     private GeneralFunctionsStats Gf_stats;
 
     [SerializeField] private UIDefault ui_default;
 
     public int hp = 50;
     public int max_hp = 100;
-    public bool is_plugged_to_ui = false;
+    public bool is_player = false;
     #endregion
 
     void Start()
     {
-        Gf_stats = player.GetComponent<GeneralFunctionsStats>();
+        Gf_stats = actor.GetComponent<GeneralFunctionsStats>();
         if (ui_default!=null)
         {
             ui_default.UIUpdateLabel("Llife", hp);
@@ -27,9 +27,7 @@ public class ScriptHealth : MonoBehaviour
     #region Health
     public void TakeDamage(int damage)
     {
-        if (hp <= 0)
-            Died();
-        else
+        if (hp > 0)
         {
             hp -= damage;
             Debug.Log("+++++++++++++++++took"+ damage +"dmg");
@@ -37,13 +35,21 @@ public class ScriptHealth : MonoBehaviour
             {
                 ui_default.UIUpdateLabel("Llife", hp);
             }
+            if (hp<=0)
+            {
+                Died();
+            }
         }
+        else
+            Died();
     }
 
     public void Died()
     {
+        if(is_player==false)
+            Destroy(this.gameObject);
         Debug.Log("===============died");
-        Destroy(this.gameObject);
+
     }
     #endregion
 
