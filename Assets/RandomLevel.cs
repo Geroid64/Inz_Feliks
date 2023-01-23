@@ -22,8 +22,8 @@ public class RandomLevel : MonoBehaviour
 
     void Start()
     {
-        Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3((grid_size_x * step)-5, 0, -5), Color.white, 50);
-        Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3(-5, 0, (grid_size_y*step)-5), Color.white, 50);
+        //Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3((grid_size_x * step)-5, 0, -5), Color.white, 50);
+        //Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3(-5, 0, (grid_size_y*step)-5), Color.white, 50);
         foreach (GameObject objec in to_spawn)
         {
             all_nodes.Add(objec.GetComponent<LevelSegment>().tile_name, objec.GetComponent<LevelSegment>().can_join);
@@ -58,8 +58,8 @@ public class RandomLevel : MonoBehaviour
 
             available_entropies.RemoveAt(0);
         } while (available_entropies.Any());
-
-            Destroy(gameObject);
+        MakeGround();
+            //Destroy(gameObject);
 
     }
 
@@ -146,10 +146,15 @@ public class RandomLevel : MonoBehaviour
                     }
                     available_entropies[inde] = new int[] { info_grid[x, y].Length, x, y };
                 }
-
             }
         }
 
     }
 
+    public void MakeGround()
+    {
+        BoxCollider coll = gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
+        coll.transform.position = new Vector3(((grid_size_x * step) / 2)-step/2, 0, ((grid_size_y * step) / 2)-step/2);
+        coll.size = new Vector3((grid_size_x*step), 0, (grid_size_y*step));
+    }
 }
