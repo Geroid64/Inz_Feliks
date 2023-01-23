@@ -145,8 +145,8 @@ MonoBehaviour:
   - {fileID: 740315078}
   - {fileID: 2039625791}
   - {fileID: 741683536}
-  grid_size_x: 3
-  grid_size_y: 3
+  grid_size_x: 50
+  grid_size_y: 50
   step: 10
 --- !u!1 &601209682
 GameObject:
