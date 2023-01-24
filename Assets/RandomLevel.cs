@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RandomLevel : MonoBehaviour
 {
+    public bool is_random = true;
+    public int biome_index = 0;
     public List<GameObject> Biome = new List<GameObject>();
     List<GameObject> to_spawn = new List<GameObject>();
     public int grid_size_x = 0;
@@ -15,6 +17,7 @@ public class RandomLevel : MonoBehaviour
 
     Dictionary<string, string[]> all_nodes = new Dictionary<string, string[]>();
 
+    GameObject randix;
     string[,][] info_grid;
     bool[,] bool_grid;
     string[] arr;
@@ -25,8 +28,14 @@ public class RandomLevel : MonoBehaviour
     {
         //Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3((grid_size_x * step)-5, 0, -5), Color.white, 50);
         //Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3(-5, 0, (grid_size_y*step)-5), Color.white, 50);
-
-        GameObject randix = Biome[Random.Range(0,Biome.Count())];
+        if (is_random)
+        {
+            randix = Biome[Random.Range(0, Biome.Count())];
+        }
+        else
+        {
+            randix = Biome[biome_index];
+        }
         
         foreach (Transform tile in randix.transform)
         {
