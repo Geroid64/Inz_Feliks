@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class RandomLevel : MonoBehaviour
 {
+    
     public bool is_random = true;
+    public SeedInfo seed_info;
     public int biome_index = 0;
     public List<GameObject> Biome = new List<GameObject>();
     List<GameObject> to_spawn = new List<GameObject>();
@@ -22,7 +24,6 @@ public class RandomLevel : MonoBehaviour
     bool[,] bool_grid;
     string[] arr;
     int[] active= new int[2];
-
 
     void Start()
     {
