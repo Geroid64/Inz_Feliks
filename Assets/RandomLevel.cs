@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class RandomLevel : MonoBehaviour
 {
-    public List<GameObject> to_spawn = new List<GameObject>();
+    public List<GameObject> Biome = new List<GameObject>();
+    List<GameObject> to_spawn = new List<GameObject>();
     public int grid_size_x = 0;
     public int grid_size_y = 0;
     public int step = 10;
@@ -24,6 +25,14 @@ public class RandomLevel : MonoBehaviour
     {
         //Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3((grid_size_x * step)-5, 0, -5), Color.white, 50);
         //Debug.DrawLine(new Vector3(-5, 0, -5), new Vector3(-5, 0, (grid_size_y*step)-5), Color.white, 50);
+
+        GameObject randix = Biome[Random.Range(0,Biome.Count())];
+        
+        foreach (Transform tile in randix.transform)
+        {
+            to_spawn.Add(tile.gameObject);
+        }
+        
         foreach (GameObject objec in to_spawn)
         {
             all_nodes.Add(objec.GetComponent<LevelSegment>().tile_name, objec.GetComponent<LevelSegment>().can_join);
