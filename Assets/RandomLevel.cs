@@ -58,9 +58,11 @@ public class RandomLevel : MonoBehaviour
 
             available_entropies.RemoveAt(0);
         } while (available_entropies.Any());
-        MakeGround();
-            //Destroy(gameObject);
 
+        SpawnTile(active[0], active[1]);
+        Debug.Log(active[0]+" "+active[1]);
+
+        MakeGround();
     }
 
     public void SpawnTile(int x, int y)
@@ -83,7 +85,7 @@ public class RandomLevel : MonoBehaviour
             info_grid[x, y] = new string[] { tile_string };
             bool_grid[x, y] = true;
             GameObject spawn_place = to_spawn.Find(tile => string.Equals(tile.GetComponent<LevelSegment>().tile_name, tile_string));
-            Debug.Log("WYBRANY TILE: " + spawn_place.GetComponent<LevelSegment>().tile_name +" I jego indeksy "+x+" "+y);
+            //Debug.Log("WYBRANY TILE: " + spawn_place.GetComponent<LevelSegment>().tile_name +" I jego indeksy "+x+" "+y);
             Instantiate(spawn_place, new Vector3(x * step, 0, y * step), Quaternion.identity);
         }
     }
@@ -112,7 +114,7 @@ public class RandomLevel : MonoBehaviour
     {
         if(info_grid[x,y][0]=="none")
         {
-            Debug.Log("ORYGINALNY TILE DO POROWNANIA: " + info_grid[active[0], active[1]][0]);
+            //Debug.Log("ORYGINALNY TILE DO POROWNANIA: " + info_grid[active[0], active[1]][0]);
             string[] c = all_nodes[info_grid[active[0], active[1]][0]];
 
             if (c != null)
