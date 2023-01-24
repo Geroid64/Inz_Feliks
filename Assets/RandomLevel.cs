@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 public class RandomLevel : MonoBehaviour
 {
     
@@ -16,7 +15,7 @@ public class RandomLevel : MonoBehaviour
     public int step = 10;
 
     List<int[]> available_entropies = new List<int[]>();
-
+    List<GameObject> placed_tiles = new List<GameObject>();
     Dictionary<string, string[]> all_nodes = new Dictionary<string, string[]>();
 
     GameObject randix;
@@ -68,6 +67,7 @@ public class RandomLevel : MonoBehaviour
         do
         {
             SpawnTile(active[0], active[1]);
+           
             ChangeAvailableTile(active[0], active[1]);
 
             available_entropies = available_entropies.OrderBy(entropies => entropies[0]).ToList();
@@ -82,6 +82,7 @@ public class RandomLevel : MonoBehaviour
         Debug.Log(active[0]+" "+active[1]);
 
         MakeGround();
+        BakeMesh();
     }
 
     public void SpawnTile(int x, int y)
@@ -105,7 +106,8 @@ public class RandomLevel : MonoBehaviour
             bool_grid[x, y] = true;
             GameObject spawn_place = to_spawn.Find(tile => string.Equals(tile.GetComponent<LevelSegment>().tile_name, tile_string));
             //Debug.Log("WYBRANY TILE: " + spawn_place.GetComponent<LevelSegment>().tile_name +" I jego indeksy "+x+" "+y);
-            Instantiate(spawn_place, new Vector3(x * step, 0, y * step), Quaternion.identity);
+            GameObject new_tile = Instantiate(spawn_place, new Vector3(x * step, 0, y * step), Quaternion.identity);
+            placed_tiles.Add(new_tile);
         }
     }
 
@@ -177,5 +179,10 @@ public class RandomLevel : MonoBehaviour
         BoxCollider coll = gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
         coll.transform.position = new Vector3(((grid_size_x * step) / 2)-step/2, 0, ((grid_size_y * step) / 2)-step/2);
         coll.size = new Vector3((grid_size_x*step), 0, (grid_size_y*step));
+    }
+
+    public void BakeMesh()
+    {
+
     }
 }
