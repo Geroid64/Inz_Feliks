@@ -828,10 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1029d037ff49e42887b8242a882ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects_to_spawn:
-  - {fileID: 1187590036259114, guid: e1154cf6ac27b2f45b4ae35582e7e363, type: 3}
-  - {fileID: 1994015782226202, guid: dc9954dcaaaee02409e17bacb3dcc453, type: 3}
-  - {fileID: 1553163231892768, guid: 0fd5be61d8c00de419d45d6bf745a69c, type: 3}
+  types:
+  - ground
+  - tree
   tile: {fileID: 53094124}
   min: 0
   max: 6
@@ -1707,9 +1706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1029d037ff49e42887b8242a882ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects_to_spawn:
-  - {fileID: 1187590036259114, guid: e1154cf6ac27b2f45b4ae35582e7e363, type: 3}
-  - {fileID: 1994015782226202, guid: dc9954dcaaaee02409e17bacb3dcc453, type: 3}
+  types:
+  - ground
   tile: {fileID: 1143852116}
   min: 0
   max: 2
@@ -1797,8 +1795,8 @@ MonoBehaviour:
   Biome:
   - {fileID: 616467624}
   - {fileID: 1996314274}
-  grid_size_x: 50
-  grid_size_y: 50
+  grid_size_x: 20
+  grid_size_y: 20
   step: 10
 --- !u!4 &1466425892
 Transform:
@@ -1861,6 +1859,12 @@ MonoBehaviour:
   resources:
   - {fileID: 8918702299259086557, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
   - {fileID: 5571880014715218357, guid: ab0c46a3f6a80244f84a67a56675ee83, type: 3}
+  ground:
+  - {fileID: 1187590036259114, guid: e1154cf6ac27b2f45b4ae35582e7e363, type: 3}
+  - {fileID: 1994015782226202, guid: dc9954dcaaaee02409e17bacb3dcc453, type: 3}
+  - {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
+  tree:
+  - {fileID: 1235107498267470, guid: efd8147160aa6c64c8121a2ed788744e, type: 3}
 --- !u!1 &1532649620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2024,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4586821900076392, guid: ae9772ea62bbc724eb9b8ef81109f733, type: 3}
   m_PrefabInstance: {fileID: 1549710532}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1595769113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595769114}
+  - component: {fileID: 1595769115}
+  m_Layer: 0
+  m_Name: Snow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595769114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595769113}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2016575952}
+  m_Father: {fileID: 1996314275}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595769115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595769113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac1334132d130b4095437b51b48a39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile_name: a
+  can_join:
+  - a
+  - b
 --- !u!1 &1813761917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,7 +2252,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2016575952}
+  - {fileID: 1595769114}
   - {fileID: 1156776732}
   - {fileID: 622374396}
   - {fileID: 1813761918}
@@ -2217,7 +2270,6 @@ GameObject:
   - component: {fileID: 2016575952}
   - component: {fileID: 2016575955}
   - component: {fileID: 2016575954}
-  - component: {fileID: 2016575953}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Untagged
@@ -2233,29 +2285,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016575951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1996314275}
+  m_Father: {fileID: 1595769114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2016575953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016575951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac1334132d130b4095437b51b48a39f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tile_name: a
-  can_join:
-  - a
-  - b
 --- !u!23 &2016575954
 MeshRenderer:
   m_ObjectHideFlags: 0

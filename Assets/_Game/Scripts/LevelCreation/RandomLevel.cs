@@ -81,7 +81,7 @@ public class RandomLevel : MonoBehaviour
         SpawnTile(active[0], active[1]);
 
         MakeGround();
-        BakeMesh();
+
         Debug.Log(SpawnManager.available_health_spawn_zones.Count);
         Debug.Log(SpawnManager.health_spawn[0]);
         SpawnStuff();
@@ -110,6 +110,7 @@ public class RandomLevel : MonoBehaviour
             GameObject spawn_place = to_spawn.Find(tile => string.Equals(tile.GetComponent<LevelSegment>().tile_name, tile_string));
             //Debug.Log("WYBRANY TILE: " + spawn_place.GetComponent<LevelSegment>().tile_name +" I jego indeksy "+x+" "+y);
             GameObject new_tile = Instantiate(spawn_place, new Vector3(x * step, 0, y * step), Quaternion.identity);
+
             placed_tiles.Add(new_tile);
         }
     }
@@ -184,11 +185,6 @@ public class RandomLevel : MonoBehaviour
         coll.size = new Vector3((grid_size_x*step), 1, (grid_size_y*step));
     }
 
-    public void BakeMesh()
-    {
-
-    }
-
     public void SpawnStuff()
     {
         //health
@@ -210,6 +206,17 @@ public class RandomLevel : MonoBehaviour
     }
     public void CleanUp()
     {
-
+        foreach  (GameObject spawn_location in SpawnManager.available_health_spawn_zones)
+        {
+            Destroy(spawn_location);
+        }
+        foreach (GameObject spawn_location in SpawnManager.available_enemies_spawn_zones)
+        {
+            Destroy(spawn_location);
+        }
+        foreach (GameObject spawn_location in SpawnManager.available_resources_spawn_zones)
+        {
+            Destroy(spawn_location);
+        }
     }
 }
