@@ -12,6 +12,7 @@ public class RandomTile : MonoBehaviour
 
     void Start()
     {
+        //TO EXPAND
         for (int i = 0; i < types.Length; i++)
         {
             switch (types[i])

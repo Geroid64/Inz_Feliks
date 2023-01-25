@@ -15,8 +15,11 @@ public class SpawnZone : MonoBehaviour
             case "health":
                 SpawnManager.available_health_spawn_zones.Add(this.gameObject);
                 break;
-            case "resource":
-                SpawnManager.available_resources_spawn_zones.Add(this.gameObject);
+            case "stone":
+                SpawnManager.available_stone_spawn_zones.Add(this.gameObject);
+                break;
+            case "wood":
+                SpawnManager.available_wood_spawn_zones.Add(this.gameObject);
                 break;
             case "enemy":
                 SpawnManager.available_enemies_spawn_zones.Add(this.gameObject);

@@ -188,22 +188,29 @@ public class RandomLevel : MonoBehaviour
     public void SpawnStuff()
     {
         //health
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DifficultyPresetsManager.max_health; i++)
         {
             GameObject to_spawn = SpawnManager.available_health_spawn_zones[Random.Range(0, SpawnManager.available_health_spawn_zones.Count)];
             Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.health_spawn[0], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            Instantiate(SpawnManager.health_spawn[Random.Range(0, SpawnManager.health_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
         //resources
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < DifficultyPresetsManager.max_stone; i++)
         {
-            GameObject to_spawn = SpawnManager.available_resources_spawn_zones[Random.Range(0, SpawnManager.available_resources_spawn_zones.Count)];
+            GameObject to_spawn = SpawnManager.available_stone_spawn_zones[Random.Range(0, SpawnManager.available_stone_spawn_zones.Count)];
             Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.resources_spawn[0], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            Instantiate(SpawnManager.stone_spawn[Random.Range(0, SpawnManager.stone_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+        }
+        for (int i = 0; i < DifficultyPresetsManager.max_wood; i++)
+        {
+            GameObject to_spawn = SpawnManager.available_wood_spawn_zones[Random.Range(0, SpawnManager.available_wood_spawn_zones.Count)];
+            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+            Instantiate(SpawnManager.wood_spawn[Random.Range(0, SpawnManager.wood_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
         //enemies
         //NEED: actual enemies that don't need NavMesh
     }
+
     public void CleanUp()
     {
         foreach  (GameObject spawn_location in SpawnManager.available_health_spawn_zones)
@@ -214,7 +221,11 @@ public class RandomLevel : MonoBehaviour
         {
             Destroy(spawn_location);
         }
-        foreach (GameObject spawn_location in SpawnManager.available_resources_spawn_zones)
+        foreach (GameObject spawn_location in SpawnManager.available_stone_spawn_zones)
+        {
+            Destroy(spawn_location);
+        }
+        foreach (GameObject spawn_location in SpawnManager.available_wood_spawn_zones)
         {
             Destroy(spawn_location);
         }
