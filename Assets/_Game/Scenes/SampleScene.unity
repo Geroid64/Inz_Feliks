@@ -1797,8 +1797,8 @@ MonoBehaviour:
   Biome:
   - {fileID: 616467624}
   - {fileID: 1996314274}
-  grid_size_x: 5
-  grid_size_y: 5
+  grid_size_x: 50
+  grid_size_y: 50
   step: 10
 --- !u!4 &1466425892
 Transform:

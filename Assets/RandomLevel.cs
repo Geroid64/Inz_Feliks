@@ -206,6 +206,7 @@ public class RandomLevel : MonoBehaviour
             Instantiate(SpawnManager.resources_spawn[0], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
         //enemies
+        //NEED: actual enemies that don't need NavMesh
     }
     public void CleanUp()
     {
