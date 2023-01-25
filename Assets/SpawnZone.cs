@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class SpawnZone : MonoBehaviour
 {
-    public GameObject[] list_to_spawn;
+    public string type;
 
+    //public SpawnManager
 
-    void Start()
+    void Awake()
     {
-        Instantiate(list_to_spawn[0], transform.position, Quaternion.identity);
-        Destroy(this);
+        switch (type)
+        {
+            case "health":
+                SpawnManager.available_health_spawn_zones.Add(this.gameObject);
+                break;
+            case "resource":
+                SpawnManager.available_resources_spawn_zones.Add(this.gameObject);
+                break;
+            case "enemy":
+                SpawnManager.available_enemies_spawn_zones.Add(this.gameObject);
+                break;
+        }
+
+        
+        //Destroy(this);
     }
 }

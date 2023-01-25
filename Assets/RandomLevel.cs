@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 public class RandomLevel : MonoBehaviour
 {
-    
+    public int difficulty_level;
     public bool is_random = true;
     public SeedInfo seed_info;
     public int biome_index = 0;
@@ -79,10 +79,13 @@ public class RandomLevel : MonoBehaviour
         } while (available_entropies.Any());
 
         SpawnTile(active[0], active[1]);
-        Debug.Log(active[0]+" "+active[1]);
 
         MakeGround();
         BakeMesh();
+        Debug.Log(SpawnManager.available_health_spawn_zones.Count);
+        Debug.Log(SpawnManager.health_spawn[0]);
+        SpawnStuff();
+        CleanUp();
     }
 
     public void SpawnTile(int x, int y)
@@ -176,12 +179,35 @@ public class RandomLevel : MonoBehaviour
 
     public void MakeGround()
     {
-        BoxCollider coll = gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
-        coll.transform.position = new Vector3(((grid_size_x * step) / 2)-step/2, 0, ((grid_size_y * step) / 2)-step/2);
-        coll.size = new Vector3((grid_size_x*step), 0, (grid_size_y*step));
+        BoxCollider coll = gameObject.GetComponent<BoxCollider>();//gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
+        coll.transform.position = new Vector3(((grid_size_x * step) / 2)-step/2, -0.5f, ((grid_size_y * step) / 2)-step/2);
+        coll.size = new Vector3((grid_size_x*step), 1, (grid_size_y*step));
     }
 
     public void BakeMesh()
+    {
+
+    }
+
+    public void SpawnStuff()
+    {
+        //health
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject to_spawn = SpawnManager.available_health_spawn_zones[Random.Range(0, SpawnManager.available_health_spawn_zones.Count)];
+            Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
+            Instantiate(SpawnManager.health_spawn[0], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+        }
+        //resources
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject to_spawn = SpawnManager.available_resources_spawn_zones[Random.Range(0, SpawnManager.available_resources_spawn_zones.Count)];
+            Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
+            Instantiate(SpawnManager.resources_spawn[0], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+        }
+        //enemies
+    }
+    public void CleanUp()
     {
 
     }
