@@ -9,10 +9,12 @@ public class ScriptHealth : MonoBehaviour
     private GeneralFunctionsStats Gf_stats;
 
     //public UIDefault ui_default;
-    public UIDocument player_hud;
+    public UIDocument ui_player;
+    public MainPlayerHUD player_hud;
     VisualElement[] health_segments = new VisualElement[10];
     public int amount_of_segments = 10;
     public int segment_index=0;
+    
     public int hp = 50;
     public int max_hp = 100;
     public bool is_player = false;
@@ -24,15 +26,14 @@ public class ScriptHealth : MonoBehaviour
     void Start()
     {
         Gf_stats = actor.GetComponent<GeneralFunctionsStats>();
-        if (player_hud != null)
-        {
+
             for (int i = 0; i < amount_of_segments; i++)
             {
-                health_segments[i] = player_hud.rootVisualElement.Q(main_UI_health_name + i.ToString()) as VisualElement;
+                health_segments[i] = ui_player.rootVisualElement.Q(main_UI_health_name + i.ToString()) as VisualElement;
                 health_segments[i].SetEnabled(false);
+                Debug.Log("PPPPPPP" + health_segments[i]);
             }
             UpdateHealthUI(true);
-        }
 
     }
 
@@ -45,6 +46,7 @@ public class ScriptHealth : MonoBehaviour
             Debug.Log("+++++++++++++++++took"+ damage +"dmg");
             if (is_player)
             {
+
                 UpdateHealthUI(false);
             }
             if (hp<=0)
@@ -102,22 +104,26 @@ public class ScriptHealth : MonoBehaviour
 
     public void UpdateHealthUI(bool heal)
     {
-        if (heal)
+        if (player_hud.is_player_hud)
         {
-            for (int i = 0; i < hp / amount_of_segments; i++)
+            if (heal)
             {
-                health_segments[i].SetEnabled(true);
+                for (int i = 0; i < hp / amount_of_segments; i++)
+                {
+                    health_segments[i].SetEnabled(true);
+                }
             }
-        }
-        else
-        {
-            for (int i = amount_of_segments-1; i >= hp / amount_of_segments; i--)
+            else
             {
-                health_segments[i].SetEnabled(false);
+                for (int i = amount_of_segments - 1; i >= hp / amount_of_segments; i--)
+                {
+                    health_segments[i].SetEnabled(false);
+                }
             }
+
+            Debug.Log("KKKKKK " + hp / amount_of_segments);
         }
 
-        Debug.Log("KKKKKK " + hp / amount_of_segments);
     }
     #endregion
 }

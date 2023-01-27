@@ -6,18 +6,13 @@ public class MainPlayerHUD : MonoBehaviour
 {
 
     public UIDocument ui_doc;
-
+    public bool is_player_hud = true;
     //private Label label_stone;
     //private Label label_wood;
     //private Label label_metal;
     //private Label label_money;
     //private Label label_time;
     //private Label label_player_ammo;
-
-    void OnEnable()
-    {
-
-    }
 
     public void UIUpdateLabel(string label_name,string text, int value)
     {
