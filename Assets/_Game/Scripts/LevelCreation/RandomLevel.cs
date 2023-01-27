@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 public class RandomLevel : MonoBehaviour
 {
-    public int difficulty_level;
     public bool is_random = true;
     public SeedInfo seed_info;
     public int biome_index = 0;

@@ -1,27 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 public class ScriptHealth : MonoBehaviour
 {
     #region Values
     public GameObject actor;
     private GeneralFunctionsStats Gf_stats;
 
-    [SerializeField] private UIDefault ui_default;
-
+    //public UIDefault ui_default;
+    public UIDocument player_hud;
+    VisualElement[] health_segments = new VisualElement[10];
+    public int amount_of_segments = 10;
+    public int segment_index=0;
     public int hp = 50;
     public int max_hp = 100;
     public bool is_player = false;
+
+    string main_UI_health_name = "LifeSegment";
     #endregion
+
 
     void Start()
     {
         Gf_stats = actor.GetComponent<GeneralFunctionsStats>();
-        if (ui_default!=null)
+        if (player_hud != null)
         {
-            ui_default.UIUpdateLabel("Llife", hp);
+            for (int i = 0; i < amount_of_segments; i++)
+            {
+                health_segments[i] = player_hud.rootVisualElement.Q(main_UI_health_name + i.ToString()) as VisualElement;
+                health_segments[i].SetEnabled(false);
+            }
+            UpdateHealthUI(true);
         }
-        
+
     }
 
     #region Health
@@ -31,9 +43,9 @@ public class ScriptHealth : MonoBehaviour
         {
             hp -= damage;
             Debug.Log("+++++++++++++++++took"+ damage +"dmg");
-            if (ui_default != null)
+            if (is_player)
             {
-                ui_default.UIUpdateLabel("Llife", hp);
+                UpdateHealthUI(false);
             }
             if (hp<=0)
             {
@@ -60,9 +72,9 @@ public class ScriptHealth : MonoBehaviour
         {
             case "health":
                 hp = Gf_stats.CheckMaxAmount(hp, amount,max_hp);
-                if (ui_default != null)
+                if (is_player)
                 {
-                    ui_default.UIUpdateLabel("Llife", hp);
+                    UpdateHealthUI(true);
                 }
                 break;
             case "speed":
@@ -86,6 +98,26 @@ public class ScriptHealth : MonoBehaviour
                 GetComponent<PlayerMovement>().speed -= amount/2;
                 break;
         }
+    }
+
+    public void UpdateHealthUI(bool heal)
+    {
+        if (heal)
+        {
+            for (int i = 0; i < hp / amount_of_segments; i++)
+            {
+                health_segments[i].SetEnabled(true);
+            }
+        }
+        else
+        {
+            for (int i = amount_of_segments-1; i >= hp / amount_of_segments; i--)
+            {
+                health_segments[i].SetEnabled(false);
+            }
+        }
+
+        Debug.Log("KKKKKK " + hp / amount_of_segments);
     }
     #endregion
 }

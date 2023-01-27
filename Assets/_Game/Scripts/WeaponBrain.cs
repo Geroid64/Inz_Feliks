@@ -11,13 +11,16 @@ public class WeaponBrain : MonoBehaviour
     public bool can_shoot=true;
     public bool is_reloading = false;
     public int mag_size=15;
-    private int mag_ammo;
+    public int mag_ammo;
     public float bullet_speed;
     public float time_to_reload = 3;
+
+    public MainPlayerHUD player_hud;
 
     public void Start()
     {
         mag_ammo = 15;
+        player_hud.UIUpdateLabel("MagazineLabel", "", mag_ammo);
         //max_ammo = ressource_manager.GetComponent<ScriptResourceManager>().max_ammo;
     }
 
@@ -32,13 +35,19 @@ public class WeaponBrain : MonoBehaviour
                 {
                     Shoot();
                     mag_ammo--;
+
+
                 }
                 else
                 {
                     can_shoot = false;
                     Debug.Log("brak ammunicji "+ mag_ammo);
+
+
                 }
+                player_hud.UIUpdateLabel("MagazineLabel", "", mag_ammo);
             }
+
             else
             {
                 Shoot();
@@ -51,6 +60,8 @@ public class WeaponBrain : MonoBehaviour
             {
 
                 StartCoroutine(Reload());
+
+
                 Debug.Log("RELOADED");
             }
         }
@@ -79,6 +90,7 @@ public class WeaponBrain : MonoBehaviour
                         yield return new WaitForSeconds(time_to_reload);
                         mag_ammo += ammo_temp.ammo_amount;
                         ammo_temp.ammo_amount = 0;
+
                     }
                     else if(ammo_temp.ammo_amount==0&& mag_ammo==0)
                     {
@@ -95,6 +107,10 @@ public class WeaponBrain : MonoBehaviour
 
             Debug.Log("RELOADED THIS MUCH: " + (mag_size - mag_ammo) + "LEFT AMMO: " + ammo_temp.ammo_amount);
             Debug.Log("RELOADED IN MAG===:" + mag_ammo);
+
+            player_hud.UIUpdateLabel("MagazineLabel", "", mag_ammo);
+            player_hud.UIUpdateLabel("AmmoLabel", "", ammo_temp.ammo_amount);
+
             can_shoot = true;
             is_reloading = false;
             break;
