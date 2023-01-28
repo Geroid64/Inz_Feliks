@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actor: {fileID: 2516692}
-  ui_player: {fileID: 0}
+  ui_player: {fileID: 512648087}
   player_hud: {fileID: 512648089}
   amount_of_segments: 10
   segment_index: 0
@@ -254,7 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2516692}
-  ui_default: {fileID: 0}
   ui_player: {fileID: 2516701}
   ammo_amount: 0
   max_amount: 70
@@ -2748,7 +2747,7 @@ MonoBehaviour:
   obj: {fileID: 2516692}
   cam: {fileID: 557929367}
   reloading: 0
-  text_offset: {x: 0, y: 2, z: 0}
+  text_offset: {x: 0, y: 0, z: 0}
   player_hud: {fileID: 512648089}
 --- !u!1001 &596427198
 PrefabInstance:
@@ -3901,7 +3900,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 7.2491255, y: 0, z: 7.2096324, w: 3.5592282}
+  m_margin: {x: 8.734648, y: 0, z: 7.2096324, w: 3.5592282}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -3960,7 +3959,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026234162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.10479477}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3969,7 +3968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.31350124, y: 1.324}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1059653949
@@ -6699,6 +6698,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8211691910438953499, guid: 858851b782bcd7b4181a5efcc6851f9d, type: 3}
+      propertyPath: ui_player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211691910438953499, guid: 858851b782bcd7b4181a5efcc6851f9d, type: 3}
+      propertyPath: player_hud
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8211691910438953502, guid: 858851b782bcd7b4181a5efcc6851f9d, type: 3}
       propertyPath: m_RootOrder
       value: 27

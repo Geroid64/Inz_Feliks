@@ -31,7 +31,6 @@ public class ScriptHealth : MonoBehaviour
             {
                 health_segments[i] = ui_player.rootVisualElement.Q(main_UI_health_name + i.ToString()) as VisualElement;
                 health_segments[i].SetEnabled(false);
-                Debug.Log("PPPPPPP" + health_segments[i]);
             }
             UpdateHealthUI(true);
 
