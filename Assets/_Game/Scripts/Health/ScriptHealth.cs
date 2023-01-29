@@ -26,13 +26,16 @@ public class ScriptHealth : MonoBehaviour
     void Start()
     {
         Gf_stats = actor.GetComponent<GeneralFunctionsStats>();
-
+        if (is_player)
+        {
             for (int i = 0; i < amount_of_segments; i++)
             {
                 health_segments[i] = ui_player.rootVisualElement.Q(main_UI_health_name + i.ToString()) as VisualElement;
                 health_segments[i].SetEnabled(false);
             }
             UpdateHealthUI(true);
+        }
+
 
     }
 
@@ -103,6 +106,7 @@ public class ScriptHealth : MonoBehaviour
 
     public void UpdateHealthUI(bool heal)
     {
+
         if (player_hud.is_player_hud)
         {
             if (heal)
@@ -119,8 +123,6 @@ public class ScriptHealth : MonoBehaviour
                     health_segments[i].SetEnabled(false);
                 }
             }
-
-            Debug.Log("KKKKKK " + hp / amount_of_segments);
         }
 
     }
