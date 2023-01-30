@@ -31,6 +31,30 @@ public class ChooseMissionScript : MonoBehaviour
     //    RandomMissionButton
     //    MissionDebriefingLabel
 
+    private void Awake()
+    {
+        ui_doc.rootVisualElement.style.display = DisplayStyle.None;
+        pop_up_text.text = "[F]";
+        pop_up_text.enabled = false;
+    }
+    private void OnEnable()
+    {
+        is_random_biome = is_random_biome_ref;
+        biome = biome_non_static;
+        button1 = ui_doc.rootVisualElement.Q("HigherDifficultyButton") as Button;
+        button2 = ui_doc.rootVisualElement.Q("LowerDifficultyButton") as Button;
+        button3 = ui_doc.rootVisualElement.Q("PreviousSectorButton") as Button;
+        button4 = ui_doc.rootVisualElement.Q("NextSectorButton") as Button;
+        button5 = ui_doc.rootVisualElement.Q("RandomMissionButton") as Button;
+        button6 = ui_doc.rootVisualElement.Q("ConfirmMissionButton") as Button;
+        button1.clicked += () => ChangeDifficultyPresets(true);
+        button2.clicked += () => ChangeDifficultyPresets(false);
+        button3.clicked += () => ChangeSectorPresets(true);
+        button4.clicked += () => ChangeSectorPresets(false);
+        button5.clicked += () => RandomPresets();
+        button6.clicked += () => ConfirmMission();
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Interact"))
@@ -67,31 +91,6 @@ public class ChooseMissionScript : MonoBehaviour
         is_choosing_mission = false;
         ui_doc.rootVisualElement.style.display = DisplayStyle.None;
         pop_up_text.enabled = false;
-    }
-
-    private void Awake()
-    {
-        ui_doc.rootVisualElement.style.display = DisplayStyle.None;
-        pop_up_text.text = "[F]";
-        pop_up_text.enabled = false;
-    }
-    private void OnEnable()
-    {
-        is_random_biome = is_random_biome_ref;
-        biome = biome_non_static;
-        button1 = ui_doc.rootVisualElement.Q("HigherDifficultyButton") as Button;
-        button2 = ui_doc.rootVisualElement.Q("LowerDifficultyButton") as Button;
-        button3 = ui_doc.rootVisualElement.Q("PreviousSectorButton") as Button;
-        button4 = ui_doc.rootVisualElement.Q("NextSectorButton") as Button;
-        button5 = ui_doc.rootVisualElement.Q("RandomMissionButton") as Button;
-        button6 = ui_doc.rootVisualElement.Q("ConfirmMissionButton") as Button;
-        button1.clicked += () => ChangeDifficultyPresets(true);
-        button2.clicked += () => ChangeDifficultyPresets(false);
-        button3.clicked += () => ChangeSectorPresets(true);
-        button4.clicked += () => ChangeSectorPresets(false);
-        button5.clicked += () => RandomPresets();
-        button6.clicked += () => ConfirmMission();
-
     }
 
     #region Difficulty
