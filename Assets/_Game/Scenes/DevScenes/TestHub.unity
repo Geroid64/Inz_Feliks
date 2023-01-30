@@ -4669,6 +4669,8 @@ GameObject:
   - component: {fileID: 1346031440}
   - component: {fileID: 1346031442}
   - component: {fileID: 1346031443}
+  - component: {fileID: 1346031444}
+  - component: {fileID: 1346031445}
   m_Layer: 0
   m_Name: MissionInfo
   m_TagString: Untagged
@@ -4705,8 +4707,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.3903679
-  m_Center: {x: -0.7017633, y: 1.0608927, z: 0}
+  m_Radius: 3.381785
+  m_Center: {x: -0.8224721, y: 1.0608912, z: 0}
 --- !u!114 &1346031442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4735,11 +4737,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ae717e125a98b4f901e3028c161991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biome_non_static:
+  - {fileID: 6488308833977312632, guid: d629ff0b1cc60e042a1f294567633c20, type: 3}
+  - {fileID: 4631783929110661911, guid: bd4baa8aa6249194084e3b1ff9a6f0db, type: 3}
   ui_doc: {fileID: 1346031442}
-  is_choosing_mission: 1
+  difficulty_settings: {fileID: 1346031444}
+  pop_up_text: {fileID: 1677556201}
+  is_choosing_mission: 0
+  is_random_biome_ref: 0
   difficulty: normal
   terrain_type: Rock
   resource_spread: stone
+  index_d: 0
+  index_b: 0
+--- !u!114 &1346031444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346031438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37daeb907f1a2db4e8fed20f798a05ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty_string:
+  - easy
+  - normal
+  - hard
+  resource_spread_string:
+  - stone
+  - wood
+  - equal
+--- !u!114 &1346031445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346031438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b6e0de5fe377d4180c345a98d4c7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+  - {fileID: 825633356863205998, guid: c5560c25e22a4e0459f7bbf99c68cf74, type: 3}
+  enemies: []
+  stone:
+  - {fileID: 8918702299259086557, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
+  wood:
+  - {fileID: 5571880014715218357, guid: ab0c46a3f6a80244f84a67a56675ee83, type: 3}
+  ground:
+  - {fileID: 1187590036259114, guid: e1154cf6ac27b2f45b4ae35582e7e363, type: 3}
+  - {fileID: 1994015782226202, guid: dc9954dcaaaee02409e17bacb3dcc453, type: 3}
+  - {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
+  tree:
+  - {fileID: 1235107498267470, guid: efd8147160aa6c64c8121a2ed788744e, type: 3}
 --- !u!1 &1373397411
 GameObject:
   m_ObjectHideFlags: 0

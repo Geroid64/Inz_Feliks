@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DifficultyPresetsManager : MonoBehaviour
 {
-    public bool is_random=true;
+    public static bool is_random_difficulty=true;
     public static string[] difficulty;
     public string[] difficulty_string;
-    public int difficulty_index = 0;
+    public static int difficulty_index = 0;
 
     public static string[] resource_spread;
     public string[] resource_spread_string;
-    public int resource_spread_index = 0;
+    public static int resource_spread_index = 0;
 
     public static int max_health;
     public static int max_stone;
@@ -20,7 +20,7 @@ public class DifficultyPresetsManager : MonoBehaviour
 
     public void Awake()
     {
-        if (is_random)
+        if (is_random_difficulty)
         {
             difficulty_index = Random.Range(0, difficulty_string.Length);
             resource_spread_index = Random.Range(0, resource_spread_string.Length);
