@@ -46,6 +46,7 @@ public class DifficultyPresetsManager : MonoBehaviour
                 break;
         }
 
+        //TO CHANGE INTO DIFFERENT BIOMES
         switch (resource_spread[resource_spread_index])
         {
             case "stone":
@@ -61,6 +62,5 @@ public class DifficultyPresetsManager : MonoBehaviour
                 max_wood = 10;
                 break;
         }
-        Debug.Log("ehhh" + max_stone);
     }
 }

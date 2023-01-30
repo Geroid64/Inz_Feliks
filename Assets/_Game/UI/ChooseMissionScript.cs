@@ -6,7 +6,7 @@ using TMPro;
 public class ChooseMissionScript : MonoBehaviour
 {
     public List<GameObject> biome_non_static = new List<GameObject>();
-    public static int biome_index = 1;
+    public static int biome_index = 0;
     public static List<GameObject> biome = new List<GameObject>();
     public UIDocument ui_doc;
     public DifficultyPresetsManager difficulty_settings;
@@ -18,6 +18,7 @@ public class ChooseMissionScript : MonoBehaviour
     public string difficulty = "normal";
     public string terrain_type = "Rock";
     public string resource_spread = "stone";
+    public string difficulty_string, biome_string, main_string;
     public int index_d, index_b=0;
     Button button1, button2, button3, button4, button5, button6;
 
@@ -39,6 +40,10 @@ public class ChooseMissionScript : MonoBehaviour
                 is_choosing_mission = !is_choosing_mission;
                 if (is_choosing_mission)
                 {
+                    main_string = "Your goal: take as many resources as you can in the given time. Good luck!";
+                    difficulty_string = DifficultyPresetsManager.difficulty[index_d];
+                    biome_string = biome[index_b].name;
+                    UIUpdateMissionLabel();
                     ui_doc.rootVisualElement.style.display = DisplayStyle.Flex;
                 }
                 else
@@ -86,7 +91,7 @@ public class ChooseMissionScript : MonoBehaviour
         button4.clicked += () => ChangeSectorPresets(false);
         button5.clicked += () => RandomPresets();
         button6.clicked += () => ConfirmMission();
-        UIUpdateLabel("MissionDebriefingLabel", "Your goal: take as many resources as you can in the given time. Good luck!");
+
     }
 
     #region Difficulty
@@ -94,6 +99,7 @@ public class ChooseMissionScript : MonoBehaviour
     {
         if (is_choosing_mission)
         {
+            is_random_biome = false;
             if (change)
             {
                 index_d++;
@@ -112,8 +118,9 @@ public class ChooseMissionScript : MonoBehaviour
                 }
             }
             DifficultyPresetsManager.difficulty_index = index_d;
-            UIUpdateLabel("MissionDebriefingLabel", DifficultyPresetsManager.difficulty[index_d]);
+            difficulty_string = DifficultyPresetsManager.difficulty[index_d];
             Debug.Log("FFFFF" + DifficultyPresetsManager.difficulty[DifficultyPresetsManager.difficulty_index]);
+            UIUpdateMissionLabel();
         }
 
     }
@@ -121,9 +128,9 @@ public class ChooseMissionScript : MonoBehaviour
     #region Sector
     public void ChangeSectorPresets(bool change)
     {
-        Debug.Log("OOOOOOOOOO"+biome.Count);
         if (is_choosing_mission)
         {
+            is_random_biome = false;
             if (change)
             {
                 index_b++;
@@ -142,23 +149,27 @@ public class ChooseMissionScript : MonoBehaviour
                 }
             }
             biome_index = index_b;
-            UIUpdateLabel("MissionDebriefingLabel", biome[biome_index].name);
+            biome_string = biome[biome_index].name;
             Debug.Log("FFFFF" + biome[biome_index]);
+            UIUpdateMissionLabel();
         }
     }
     #endregion
+
     public void RandomPresets()
     {
-
+        is_random_biome = true;
+        Label label = ui_doc.rootVisualElement.Q("MissionDebriefingLabel") as Label;
+        label.text = "YOU CHOSE RANDOM";
     }
     public void ConfirmMission()
     {
         ui_doc.rootVisualElement.style.display = DisplayStyle.None;
         is_choosing_mission = false;
     }
-    public void UIUpdateLabel(string label_name, string string_text)
+    public void UIUpdateMissionLabel()
     {
-        Label label = ui_doc.rootVisualElement.Q(label_name) as Label;
-        label.text = string_text;
+        Label label = ui_doc.rootVisualElement.Q("MissionDebriefingLabel") as Label;
+        label.text = main_string + "\nYour chosen location: " + biome_string +"\nYour chosen difficulty: "+ difficulty_string;
     }
 }
