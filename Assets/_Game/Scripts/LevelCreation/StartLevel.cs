@@ -10,8 +10,10 @@ public class StartLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("zmiana poziomu na: " + scene_index);
-            SceneManager.LoadScene(scene_index, LoadSceneMode.Single);
+            if (ChooseMissionScript.mission_chosen)
+            {
+                SceneManager.LoadScene(scene_index, LoadSceneMode.Single);
+            }
         }
     }
 }

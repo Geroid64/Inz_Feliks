@@ -7,7 +7,7 @@ public class MissionTimer : MonoBehaviour
     public MainPlayerHUD player_hud;
     public float time_in_seconds = 60;
     public bool timer_activated = true;
-
+    public PlayerLostScript timer_stop;
     public float minutes, seconds = 0;
 
     void Start()
@@ -17,7 +17,10 @@ public class MissionTimer : MonoBehaviour
         player_hud.UIUpdateTimeLabel("MissionTimeLabel", minutes, seconds);
         Coroutine routine = StartCoroutine(MissionTimerCountdown());
     }
-
+    private void TimerStopped()
+    {
+        timer_stop.LoserManager();
+    }
     IEnumerator MissionTimerCountdown()
     {
         while (timer_activated)
@@ -31,7 +34,10 @@ public class MissionTimer : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
             else
+            {
                 timer_activated = false;
+                TimerStopped();
+            }
         }
     }
 }

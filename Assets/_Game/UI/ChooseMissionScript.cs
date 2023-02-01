@@ -20,6 +20,7 @@ public class ChooseMissionScript : MonoBehaviour
     public string resource_spread = "stone";
     public string difficulty_string, biome_string, main_string;
     public int index_d, index_b=0;
+    public static bool mission_chosen = false;
     Button button1, button2, button3, button4, button5, button6;
 
     //names
@@ -36,6 +37,7 @@ public class ChooseMissionScript : MonoBehaviour
         ui_doc.rootVisualElement.style.display = DisplayStyle.None;
         pop_up_text.text = "[F]";
         pop_up_text.enabled = false;
+        mission_chosen = false;
     }
     private void OnEnable()
     {
@@ -165,6 +167,7 @@ public class ChooseMissionScript : MonoBehaviour
     {
         ui_doc.rootVisualElement.style.display = DisplayStyle.None;
         is_choosing_mission = false;
+        mission_chosen = true;
     }
     public void UIUpdateMissionLabel()
     {

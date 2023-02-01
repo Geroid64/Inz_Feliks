@@ -10,8 +10,8 @@ public class ScriptResourceManager : MonoBehaviour
 
     public MainPlayerHUD ui_player;
 
-    int wood_amount, stone_amount, metal_amount, wool_amount;
-    int money;
+    public static int wood_amount, stone_amount, metal_amount, wool_amount = 0;
+    static int money;
     public int ammo_amount;
     public int max_amount, max_money, max_ammo;
 
@@ -19,13 +19,7 @@ public class ScriptResourceManager : MonoBehaviour
 
     private void Awake()
     {
-        //stone_amount = 25;
-        ammo_amount = 60;
-        money = 0;
-        stone_amount = 0;
-        wood_amount = 0;
-        metal_amount = 0;
-
+        ammo_amount = max_ammo;
         if(ui_player.is_player_hud)
         {
             ui_player.UIUpdateLabel("AmmoLabel", "", ammo_amount);
@@ -38,11 +32,6 @@ public class ScriptResourceManager : MonoBehaviour
 
 
         Gf_stats = player.GetComponent<GeneralFunctionsStats>();
-    }
-
-    void Start()
-    {
-
     }
 
     #region Creating Resources

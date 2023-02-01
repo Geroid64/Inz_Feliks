@@ -7,7 +7,7 @@ public class ScriptHealth : MonoBehaviour
     #region Values
     public GameObject actor;
     private GeneralFunctionsStats Gf_stats;
-
+    public PlayerLostScript lost_script;
     //public UIDefault ui_default;
     public UIDocument ui_player;
     public MainPlayerHUD player_hud;
@@ -62,6 +62,10 @@ public class ScriptHealth : MonoBehaviour
 
     public void Died()
     {
+        if (is_player==true)
+        {
+            lost_script.LoserManager();
+        }
         if(is_player==false)
             Destroy(this.gameObject);
         Debug.Log("===============died");

@@ -7,7 +7,7 @@ using TMPro;
 public class MainMenuScript : MonoBehaviour
 {
     public UIDocument ui_doc;
-    Button credits_button, settings_button, continue_button, start_button, quit_button;
+    Button credits_button, tutorial_button, start_button, quit_button;
     Button return_button;
     VisualElement return_background;
     public TMP_Text credits_text;
@@ -26,8 +26,7 @@ public class MainMenuScript : MonoBehaviour
     {
         credits_initial = credits_text.transform.position;
         credits_button = ui_doc.rootVisualElement.Q("CreditsButton") as Button;
-        settings_button = ui_doc.rootVisualElement.Q("SettingsButton") as Button;
-        continue_button = ui_doc.rootVisualElement.Q("ContinueButton") as Button;
+        tutorial_button = ui_doc.rootVisualElement.Q("SettingsButton") as Button;
         start_button = ui_doc.rootVisualElement.Q("StartButton") as Button;
         return_button = ui_doc.rootVisualElement.Q("ReturnButton") as Button;
         quit_button = ui_doc.rootVisualElement.Q("QuitButton") as Button;
@@ -36,8 +35,7 @@ public class MainMenuScript : MonoBehaviour
 
         return_button.clicked += () => HideCredits();
         credits_button.clicked += () => ShowCredits();
-        settings_button.clicked += () => ShowSettings();
-        continue_button.clicked += () => ContinueGame();
+        tutorial_button.clicked += () => ShowTutorial();
         start_button.clicked += () => StartNewGame();
         quit_button.clicked += () => Application.Quit();
         credits_game_object.SetActive(false);
@@ -64,14 +62,10 @@ public class MainMenuScript : MonoBehaviour
         StopCoroutine(routine);
         credits_text.transform.position = credits_initial;
     }
-    public void ShowSettings()
-    {
-        //volume
-    }
     
-    public void ContinueGame()
+    public void ShowTutorial()
     {
-        //saves == txt file with resource amounts, money, and grid placements
+
     }
 
     public void StartNewGame()
