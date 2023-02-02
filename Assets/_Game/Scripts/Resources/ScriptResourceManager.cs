@@ -11,7 +11,7 @@ public class ScriptResourceManager : MonoBehaviour
     public MainPlayerHUD ui_player;
 
     public static int wood_amount, stone_amount, metal_amount, wool_amount = 0;
-    static int money;
+    public static int money;
     public int ammo_amount;
     public int max_amount, max_money, max_ammo;
 

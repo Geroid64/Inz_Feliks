@@ -26,4 +26,12 @@ public class MainPlayerHUD : MonoBehaviour
         Label label = ui_doc.rootVisualElement.Q(label_name) as Label;
         label.text = string.Format("{0:00}",minutes)+":"+string.Format("{0:00}",seconds);
     }
+
+    public void DisablePlayerUI(bool disable)
+    {
+        if (disable)
+            ui_doc.rootVisualElement.style.display = DisplayStyle.None;
+        else
+            ui_doc.rootVisualElement.style.display = DisplayStyle.Flex;
+    }
 }
