@@ -1767,6 +1767,7 @@ GameObject:
   - component: {fileID: 310457100}
   - component: {fileID: 310457105}
   - component: {fileID: 310457106}
+  - component: {fileID: 310457107}
   m_Layer: 0
   m_Name: BuildObject
   m_TagString: Untagged
@@ -1883,7 +1884,7 @@ MonoBehaviour:
   open: 0
   in_collider: 0
   index: 0
-  cost: 00000000000000000000000000000000
+  cost: 00000000050000000000000000000000
   types: []
   ui_build: {fileID: 310457106}
   ui_player: {fileID: 512648089}
@@ -1903,6 +1904,18 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 9ba330dfdd64093448e54a4070f03306, type: 3}
   m_SortingOrder: 0
+--- !u!114 &310457107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310457099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc8027b8a0b7464eb91d74ca3d6c0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &316690525
 GameObject:
   m_ObjectHideFlags: 0

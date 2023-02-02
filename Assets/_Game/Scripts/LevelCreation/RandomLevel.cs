@@ -83,8 +83,6 @@ public class RandomLevel : MonoBehaviour
 
         MakeGround();
 
-        Debug.Log(SpawnManager.available_health_spawn_zones.Count);
-        Debug.Log(SpawnManager.health_spawn[0]);
         SpawnStuff();
         CleanUp();
     }
@@ -191,9 +189,13 @@ public class RandomLevel : MonoBehaviour
         //health
         for (int i = 0; i < DifficultyPresetsManager.max_health; i++)
         {
-            GameObject to_spawn = SpawnManager.available_health_spawn_zones[Random.Range(0, SpawnManager.available_health_spawn_zones.Count)];
+            Debug.Log("GGGGGG==================");
+            int count = SpawnManager.available_health_spawn_zones.Count;
+            GameObject to_spawn = SpawnManager.available_health_spawn_zones[Random.Range(0, count)];//tu jest prblem?
+                                                                                                    //tak tu jest problem
             Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.health_spawn[Random.Range(0, SpawnManager.health_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            Debug.Log("GGGG ROTACJA" + roton);
+            Instantiate(SpawnManager.health_spawn[Random.Range(0, SpawnManager.health_spawn.Count-1)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
         //resources
         for (int i = 0; i < DifficultyPresetsManager.max_stone; i++)
@@ -214,7 +216,7 @@ public class RandomLevel : MonoBehaviour
 
     public void CleanUp()
     {
-        foreach  (GameObject spawn_location in SpawnManager.available_health_spawn_zones)
+        foreach (GameObject spawn_location in SpawnManager.available_health_spawn_zones)
         {
             Destroy(spawn_location);
         }
@@ -230,5 +232,9 @@ public class RandomLevel : MonoBehaviour
         {
             Destroy(spawn_location);
         }
+        SpawnManager.available_health_spawn_zones.Clear();
+        SpawnManager.available_enemies_spawn_zones.Clear();
+        SpawnManager.available_stone_spawn_zones.Clear();
+        SpawnManager.available_wood_spawn_zones.Clear();
     }
 }

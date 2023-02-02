@@ -11,7 +11,7 @@ public class BuildInterior : MonoBehaviour
 
     public static bool funded = false;
     public bool open,in_collider = false;
-    bool check = false;
+    //bool check = false;
     public int index = 0;
     //0,wood|1,stone|2,metal|3,money
     public int[] cost;
@@ -29,11 +29,11 @@ public class BuildInterior : MonoBehaviour
         fund_label = ui_build.rootVisualElement.Q("DialogInfoLabel") as Label;
         buy_button = ui_build.rootVisualElement.Q("BuyButton") as Button;
         buy_button.clicked += () => CheckProgress();
-
         to_spawn.SetActive(funded);
+
         ui_build.rootVisualElement.style.display = DisplayStyle.None;
     }
-
+    
     private void Update()
     {
         if (in_collider)
@@ -55,6 +55,15 @@ public class BuildInterior : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (funded)
+        {
+            to_spawn.SetActive(funded);
+            Destroy(to_spawn);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -73,18 +82,20 @@ public class BuildInterior : MonoBehaviour
 
     public void CheckProgress()
     {
-
-        check = is_enough(ScriptResourceManager.wood_amount, 0);
-        check = is_enough(ScriptResourceManager.stone_amount, 1);
-        check = is_enough(ScriptResourceManager.metal_amount, 2);
-        check = is_enough(ScriptResourceManager.money, 3);
-        if (check)
+        if (
+            is_enough(ScriptResourceManager.wood_amount, 0)&&
+            is_enough(ScriptResourceManager.stone_amount, 1)&&
+            is_enough(ScriptResourceManager.metal_amount, 2)&&
+            is_enough(ScriptResourceManager.money, 3)
+            )
         {
             resources.DeleteResources("wood", cost[0]);
             resources.DeleteResources("stone", cost[1]);
             resources.DeleteResources("metal", cost[2]);
             resources.DeleteResources("money", cost[3]);
-            to_spawn.SetActive(true);
+            funded = true;
+            to_spawn.SetActive(funded);
+            ui_player.DisablePlayerUI(false);
             Destroy(gameObject);
         }
         else
