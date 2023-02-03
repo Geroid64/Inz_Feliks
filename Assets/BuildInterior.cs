@@ -30,7 +30,10 @@ public class BuildInterior : MonoBehaviour
         buy_button = ui_build.rootVisualElement.Q("BuyButton") as Button;
         buy_button.clicked += () => CheckProgress();
         to_spawn.SetActive(funded);
-
+        fund_label.text = ScriptResourceManager.wood_amount.ToString() + "\n";
+        fund_label.text += ScriptResourceManager.stone_amount.ToString() + "\n";
+        fund_label.text += ScriptResourceManager.metal_amount.ToString() + "\n";
+        fund_label.text += ScriptResourceManager.money.ToString();
         ui_build.rootVisualElement.style.display = DisplayStyle.None;
     }
     
