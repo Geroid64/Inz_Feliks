@@ -5,15 +5,20 @@ using UnityEngine;
 public class ScriptResourceManager : MonoBehaviour
 {
     #region Values
+
     public GameObject player;
     private GeneralFunctionsStats Gf_stats;
-
     public MainPlayerHUD ui_player;
 
     public static int wood_amount, stone_amount, metal_amount, wool_amount = 0;
     public static int money;
+    public int max_money = 1000;
     public int ammo_amount;
-    public int max_amount, max_money, max_ammo;
+    public static int max_wood = 70;
+    public static int max_stone = 70;
+    public static int max_metal = 70;
+    public static int max_ammo = 120;
+    
 
     #endregion
 
@@ -29,18 +34,8 @@ public class ScriptResourceManager : MonoBehaviour
             ui_player.UIUpdateLabel("MetalAmountLabel", "Metal: ", metal_amount);
         }
 
-
-
         Gf_stats = player.GetComponent<GeneralFunctionsStats>();
     }
-
-    #region Creating Resources
-    //NEED: save mechanic to create from save file
-    #endregion
-
-    #region Reading Resources
-    //NEED: save file
-    #endregion
 
     #region Updating Resources
     public void GainResources(string resource, int amount)
@@ -62,28 +57,25 @@ public class ScriptResourceManager : MonoBehaviour
                 }
                 break;
             case "wood":
-                wood_amount = Gf_stats.CheckMaxAmount(wood_amount, amount, max_amount);
+                wood_amount = Gf_stats.CheckMaxAmount(wood_amount, amount, max_wood);
                 if (ui_player.is_player_hud)
                 {
                     ui_player.UIUpdateLabel("WoodAmountLabel", "Wood: ", wood_amount);
                 }
                 break;
             case "stone":
-                stone_amount = Gf_stats.CheckMaxAmount(stone_amount, amount, max_amount);
+                stone_amount = Gf_stats.CheckMaxAmount(stone_amount, amount, max_stone);
                 if (ui_player.is_player_hud)
                 {
                     ui_player.UIUpdateLabel("StoneAmountLabel", "Stone: ", stone_amount);
                 }
                 break;
             case "metal":
-                metal_amount = Gf_stats.CheckMaxAmount(metal_amount, amount, max_amount);
+                metal_amount = Gf_stats.CheckMaxAmount(metal_amount, amount, max_metal);
                 if (ui_player.is_player_hud)
                 {
                     ui_player.UIUpdateLabel("MetalAmountLabel", "Metal: ", metal_amount);
                 }
-                break;
-            case "wool":
-                wool_amount = Gf_stats.CheckMaxAmount(wool_amount, amount, max_amount);
                 break;
         }
     }
@@ -128,9 +120,6 @@ public class ScriptResourceManager : MonoBehaviour
                 {
                     ui_player.UIUpdateLabel("MetalAmountLabel", "Metal: ", metal_amount);
                 }
-                break;
-            case "wool":
-                wool_amount = Gf_stats.CheckMinAmount(wool_amount, amount);
                 break;
         }
     }

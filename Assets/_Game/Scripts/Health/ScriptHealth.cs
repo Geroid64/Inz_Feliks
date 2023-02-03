@@ -86,7 +86,7 @@ public class ScriptHealth : MonoBehaviour
                 }
                 break;
             case "speed":
-                GetComponent<PlayerMovement>().speed += amount;
+                PlayerMovement.speed += amount;
                 break;
         }
     }
@@ -99,11 +99,11 @@ public class ScriptHealth : MonoBehaviour
                 TakeDamage(amount);
                 break;
             case "slow":
-                GetComponent<PlayerMovement>().speed -= amount;
+                PlayerMovement.speed -= amount;
                 break;
             case "break":
                 TakeDamage(amount);
-                GetComponent<PlayerMovement>().speed -= amount/2;
+                PlayerMovement.speed -= amount/2;
                 break;
         }
     }

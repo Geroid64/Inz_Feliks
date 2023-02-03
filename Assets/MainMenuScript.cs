@@ -26,7 +26,7 @@ public class MainMenuScript : MonoBehaviour
     {
         credits_initial = credits_text.transform.position;
         credits_button = ui_doc.rootVisualElement.Q("CreditsButton") as Button;
-        tutorial_button = ui_doc.rootVisualElement.Q("SettingsButton") as Button;
+        tutorial_button = ui_doc.rootVisualElement.Q("TutorialButton") as Button;
         start_button = ui_doc.rootVisualElement.Q("StartButton") as Button;
         return_button = ui_doc.rootVisualElement.Q("ReturnButton") as Button;
         quit_button = ui_doc.rootVisualElement.Q("QuitButton") as Button;

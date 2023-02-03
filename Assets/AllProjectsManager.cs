@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class AllProjectsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static Dictionary<string, bool> funded_list = new Dictionary<string, bool>();
 }

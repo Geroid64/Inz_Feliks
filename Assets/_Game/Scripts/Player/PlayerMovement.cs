@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public static bool can_move = true;
-    public float speed = 6f;
+    public static float speed = 6f;
     public float smooth = 0.1f;
     public float smooth_velocity;
     public Camera cam;
