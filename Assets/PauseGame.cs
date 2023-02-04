@@ -22,7 +22,7 @@ public class PauseGame : MonoBehaviour
         button2 = pause_menu.rootVisualElement.Q("BackToMenuButton") as Button;
         button3 = pause_menu.rootVisualElement.Q("ExitGameButton") as Button;
         button1.clicked += () => ClosePauseMenu();
-        button2.clicked += () => SceneManager.LoadScene(0,LoadSceneMode.Single);
+        button2.clicked += () => ChangeScene(); 
         button3.clicked += () => Application.Quit();
     }
 
@@ -46,7 +46,14 @@ public class PauseGame : MonoBehaviour
 
     public void ClosePauseMenu()
     {
+
         is_open = false;
         pause_menu.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    public void ChangeScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class BuildInterior : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BuildInterior : MonoBehaviour
     public GameObject to_spawn;
     public ScriptResourceManager resources;
     public ScriptHealth player_health;
+    public TMP_Text pop_up_text;
 
     public string fund_name;
     //0,wood|1,stone|2,metal|3,money
@@ -29,6 +31,7 @@ public class BuildInterior : MonoBehaviour
 
     private void Awake()
     {
+        pop_up_text.enabled = false;
         if (!AllProjectsManager.funded_list.ContainsKey(fund_name))
         {
             AllProjectsManager.funded_list.Add(fund_name, false);
@@ -47,6 +50,7 @@ public class BuildInterior : MonoBehaviour
     {
         if (in_collider)
         {
+
             if (Input.GetButtonDown("Interact"))
             {
                 open = !open;
@@ -79,12 +83,14 @@ public class BuildInterior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            pop_up_text.enabled = true;
             in_collider = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        pop_up_text.enabled = false;
         ui_build.rootVisualElement.style.display = DisplayStyle.None;
         open = false;
         ui_player.DisablePlayerUI(false);
@@ -145,7 +151,31 @@ public class BuildInterior : MonoBehaviour
             fund_label.text += "metal: " + cost[2].ToString() + "\n";
         if (cost[3] > 0)
             fund_label.text += "money: " + cost[3].ToString() + "\n";
-        fund_label.text += "It can help you with ";
+        if (gives_buff)
+        {
+            fund_label.text += "It can help you with ";
+            if (is_res)
+            {
+                switch (buff_type)
+                {
+                    case "wood":
+                        fund_label.text += "how much wood you can carry.";
+                        break;
+                    case "stone":
+                        fund_label.text += "how much stone you can carry.";
+                        break;
+                    case "metal":
+                        fund_label.text += "how much metal you can carry.";
+                        break;
+                    case "ammo":
+                        fund_label.text += "how much ammo you can carry.";
+                        break;
+                }
+            }
+            else
+                fund_label.text += "how fast you are walking.";
+        }
+
     }
 
     public void GiveBuff(bool res, string type, int amount)
