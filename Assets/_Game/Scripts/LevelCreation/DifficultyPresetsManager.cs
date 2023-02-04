@@ -37,11 +37,11 @@ public class DifficultyPresetsManager : MonoBehaviour
                 max_health = 15;
                 break;
             case "normal":
-                max_enemy = 10;
+                max_enemy = 25;
                 max_health = 10;
                 break;
             case "hard":
-                max_enemy = 20;
+                max_enemy = 60;
                 max_health = 5;
                 break;
         }

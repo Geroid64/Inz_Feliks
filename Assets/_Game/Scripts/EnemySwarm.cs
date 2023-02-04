@@ -5,17 +5,22 @@ using UnityEngine;
 public class EnemySwarm : MonoBehaviour
 {
     public GameObject player;
+    ScriptHealth player_health;
+    public Collider FOV;
     public float speed = 4f;
     public float rot_speed = 1f;
     public float offset= 1f;
     public int x, y = 50;
     bool wander_bool = true;
     bool attack_bool = false;
-    Coroutine routine_wander, routine_attack;
+    bool damage_bool = false;
+    Coroutine routine_wander, routine_attack, routine_deal_damage;
     public Vector3 direction;
 
     void Start()
     {
+        player = GameObject.Find("player");
+        player_health = player.GetComponent<ScriptHealth>();
         direction = transform.position;
         States("wander");
     }
@@ -28,6 +33,25 @@ public class EnemySwarm : MonoBehaviour
         if(attack_bool && (direction - transform.position).magnitude > 0.001f)
             transform.LookAt(player.transform);
         transform.position = Vector3.MoveTowards(transform.position, direction ,speed * Time.deltaTime);
+
+        if (Vector3.Distance(player.transform.position, transform.position) < 5)
+        {
+            Debug.Log("TTTTTTTTTTTTTTTTT" + Vector3.Distance(player.transform.position, transform.position));
+            if(damage_bool == false)
+            {
+                damage_bool = true;
+                States("damage");
+            }
+        }
+
+        else
+        {
+            damage_bool = false;
+            if (routine_deal_damage!=null)
+            {
+                StopCoroutine(routine_deal_damage);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,6 +90,9 @@ public class EnemySwarm : MonoBehaviour
                     StopCoroutine(routine_wander);
                 routine_attack = StartCoroutine(Attack());
                 break;
+            case "damage":
+                routine_deal_damage = StartCoroutine(DealDamage());
+                break;
         }
     }
 
@@ -89,4 +116,13 @@ public class EnemySwarm : MonoBehaviour
             yield return null;
         }
     }
+    IEnumerator DealDamage()
+    {
+        while (damage_bool)
+        {
+            player_health.Suffer("damage", 5);
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
 }

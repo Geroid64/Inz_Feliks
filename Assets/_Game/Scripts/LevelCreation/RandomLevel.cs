@@ -210,8 +210,12 @@ public class RandomLevel : MonoBehaviour
             Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
             Instantiate(SpawnManager.wood_spawn[Random.Range(0, SpawnManager.wood_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
-        //enemies
-        //NEED: actual enemies that don't need NavMesh
+        for (int i = 0; i < DifficultyPresetsManager.max_enemy; i++)
+        {
+            GameObject to_spawn = SpawnManager.available_enemies_spawn_zones[Random.Range(0, SpawnManager.available_enemies_spawn_zones.Count)];
+            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+            Instantiate(SpawnManager.enemies_spawn[Random.Range(0, SpawnManager.enemies_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+        }
     }
 
     public void CleanUp()
