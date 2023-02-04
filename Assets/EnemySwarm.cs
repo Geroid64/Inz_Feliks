@@ -6,6 +6,8 @@ public class EnemySwarm : MonoBehaviour
 {
     public GameObject player;
     public float speed = 4f;
+    public float rot_speed = 1f;
+    public float offset= 1f;
     public int x, y = 50;
     bool wander_bool = true;
     bool attack_bool = false;
@@ -14,14 +16,18 @@ public class EnemySwarm : MonoBehaviour
 
     void Start()
     {
+        direction = transform.position;
         States("wander");
     }
 
     void Update()
     {
-
-        transform.Translate(direction * Time.deltaTime * speed);
-
+        direction.y = transform.position.y;
+        if (wander_bool && (direction - transform.position).magnitude >0.001f)
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction - transform.position), Time.deltaTime * rot_speed);
+        if(attack_bool && (direction - transform.position).magnitude > 0.001f)
+            transform.LookAt(player.transform);
+        transform.position = Vector3.MoveTowards(transform.position, direction ,speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,6 +53,7 @@ public class EnemySwarm : MonoBehaviour
         {
             case "wander":
                 wander_bool = true;
+                attack_bool = false;
                 if(routine_attack!=null)
                     StopCoroutine(routine_attack);
                 routine_wander = StartCoroutine(Wander());
@@ -54,6 +61,7 @@ public class EnemySwarm : MonoBehaviour
                 break;
             case "attack":
                 attack_bool = true;
+                wander_bool = false;
                 if (routine_wander != null)
                     StopCoroutine(routine_wander);
                 routine_attack = StartCoroutine(Attack());
@@ -65,11 +73,9 @@ public class EnemySwarm : MonoBehaviour
     {
         while (wander_bool)
         {
-            float range = 5.5f;
+            direction.x = Random.Range(transform.position.x - offset, transform.position.x + offset);
+            direction.z = Random.Range(transform.position.z - offset, transform.position.z + offset);
 
-            direction = Random.insideUnitSphere * range;
-            direction.y = 0;
-            transform.forward = direction.normalized;
             yield return new WaitForSeconds(2);
         }
     }
@@ -77,8 +83,9 @@ public class EnemySwarm : MonoBehaviour
     {
         while (attack_bool)
         {
-            direction = player.transform.position - transform.position;
-            transform.forward = direction.normalized;
+            direction.x = player.transform.position.x;
+            direction.z = player.transform.position.z;
+
             yield return null;
         }
     }
