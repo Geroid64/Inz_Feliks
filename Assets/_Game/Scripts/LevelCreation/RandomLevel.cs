@@ -214,7 +214,7 @@ public class RandomLevel : MonoBehaviour
         {
             GameObject to_spawn = SpawnManager.available_enemies_spawn_zones[Random.Range(0, SpawnManager.available_enemies_spawn_zones.Count)];
             Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.enemies_spawn[Random.Range(0, SpawnManager.enemies_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            Instantiate(SpawnManager.enemies_spawn[Random.Range(0, SpawnManager.enemies_spawn.Count)], new Vector3(to_spawn.transform.position.x, 1, to_spawn.transform.position.z), roton);
         }
     }
 
