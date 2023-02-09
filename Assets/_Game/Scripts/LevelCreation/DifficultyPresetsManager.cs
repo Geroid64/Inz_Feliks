@@ -16,6 +16,8 @@ public class DifficultyPresetsManager : MonoBehaviour
     public static int max_health;
     public static int max_stone;
     public static int max_wood;
+    public static int max_metal;
+    public static int max_money;
     public static int max_enemy;
 
     public void Awake()
@@ -35,14 +37,17 @@ public class DifficultyPresetsManager : MonoBehaviour
             case "easy":
                 max_enemy = 10;
                 max_health = 15;
+                max_money = 5;
                 break;
             case "normal":
                 max_enemy = 25;
                 max_health = 10;
+                max_money = 7;
                 break;
             case "hard":
                 max_enemy = 60;
                 max_health = 5;
+                max_money = 13;
                 break;
         }
 
@@ -51,14 +56,17 @@ public class DifficultyPresetsManager : MonoBehaviour
             case "stone":
                 max_stone = 20;
                 max_wood = 4;
+                max_metal = 8;
                 break;
             case "wood":
                 max_stone = 6;
                 max_wood = 25;
+                max_metal = 3;
                 break;
             case "equal":
                 max_stone = 10;
                 max_wood = 10;
+                max_metal = 10;
                 break;
         }
     }

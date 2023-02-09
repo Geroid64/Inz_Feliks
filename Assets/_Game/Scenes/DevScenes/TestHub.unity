@@ -162,7 +162,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.02
+  m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2516694
@@ -216,9 +216,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2516697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,9 +279,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.59282804
-  m_Height: 2.0571625
+  m_Height: 1.6208506
   m_Direction: 1
-  m_Center: {x: 0, y: 0.0058578253, z: 0.014618397}
+  m_Center: {x: 0, y: 0.0820235, z: 0.014618397}
 --- !u!114 &2516701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8217,7 +8217,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1382
+  m_Name: pb_Mesh358734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16677,7 +16677,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-342194
+  m_Name: pb_Mesh361784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17127,7 +17127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885223317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.238, y: -0.477, z: 0.045}
+  m_LocalPosition: {x: -0.179, y: -0.477, z: 0.045}
   m_LocalScale: {x: 0.23812051, y: 0.4828393, z: 0.2145312}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23985,8 +23985,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   biome_non_static:
-  - {fileID: 6488308833977312632, guid: d629ff0b1cc60e042a1f294567633c20, type: 3}
   - {fileID: 4631783929110661911, guid: bd4baa8aa6249194084e3b1ff9a6f0db, type: 3}
+  - {fileID: 4631783929110661911, guid: 14ca8e7e325850641a19dfde0fa801f6, type: 3}
+  - {fileID: 4631783929110661911, guid: 77ffe70a16649d9479943cd014351cea, type: 3}
   ui_doc: {fileID: 1346031442}
   difficulty_settings: {fileID: 1346031444}
   pop_up_text: {fileID: 1677556201}
@@ -24040,6 +24041,10 @@ MonoBehaviour:
   - {fileID: 8918702299259086557, guid: b40d04a0e3f555844b2cd6256a401d1b, type: 3}
   wood:
   - {fileID: 5571880014715218357, guid: ab0c46a3f6a80244f84a67a56675ee83, type: 3}
+  metal:
+  - {fileID: 3492084384904293077, guid: a7b656ecf079bae41920c317f0728dd0, type: 3}
+  money:
+  - {fileID: 8419574507553165885, guid: 3624a00530cc68b4a9015d37f72e4cba, type: 3}
   ground:
   - {fileID: 1187590036259114, guid: e1154cf6ac27b2f45b4ae35582e7e363, type: 3}
   - {fileID: 1994015782226202, guid: dc9954dcaaaee02409e17bacb3dcc453, type: 3}
@@ -26039,7 +26044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447710543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -0.477, z: 0.045}
+  m_LocalPosition: {x: 0.148, y: -0.477, z: 0.045}
   m_LocalScale: {x: 0.23812051, y: 0.47906497, z: 0.2145312}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32423,10 +32428,10 @@ MonoBehaviour:
   pop_up_text: {fileID: 1031911767}
   fund_name: shield
   cost: 00000000050000000000000000000000
-  gives_buff: 0
-  is_res: 0
-  buff_type: speed
-  buff_amount: 8
+  gives_buff: 1
+  is_res: 1
+  buff_type: wood
+  buff_amount: 30
   ui_build: {fileID: 1788863233}
   ui_player: {fileID: 512648089}
 --- !u!114 &1788863233

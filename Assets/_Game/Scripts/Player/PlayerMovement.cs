@@ -17,11 +17,12 @@ public class PlayerMovement : MonoBehaviour
         z_axis = cam.transform.forward;
         z_axis.y = 0;
         controller.detectCollisions = false;
+        z_axis = Vector3.Normalize(z_axis);
         x_axis = Quaternion.Euler(new Vector3(0, 90, 0)) * cam.transform.forward;
         gravity.y = -1;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (can_move)
         {
@@ -45,16 +46,19 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (!controller.isGrounded)
+            {
+                Debug.Log("nie dotyka ziemi");
                 iso_dir = horizontal * x_axis + vertical * z_axis + gravity;
+            }
             else
                 iso_dir = horizontal * x_axis + vertical * z_axis;
 
             if (iso_dir.magnitude >= 0.1f)
             {
                 if (sprint == true)
-                    controller.Move(iso_dir.normalized * (speed + 5) * Time.deltaTime);
+                    controller.Move(iso_dir * (speed + 5) * Time.deltaTime);
                 else
-                    controller.Move(iso_dir.normalized * speed * Time.deltaTime);
+                    controller.Move(iso_dir * speed * Time.deltaTime);
             }
         }
 

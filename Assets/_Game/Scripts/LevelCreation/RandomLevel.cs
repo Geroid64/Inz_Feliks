@@ -204,6 +204,18 @@ public class RandomLevel : MonoBehaviour
             Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
             Instantiate(SpawnManager.wood_spawn[Random.Range(0, SpawnManager.wood_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
+        for (int i = 0; i < DifficultyPresetsManager.max_metal; i++)
+        {
+            GameObject to_spawn = SpawnManager.available_metal_spawn_zones[Random.Range(0, SpawnManager.available_metal_spawn_zones.Count)];
+            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+            Instantiate(SpawnManager.metal_spawn[Random.Range(0, SpawnManager.metal_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+        }
+        for (int i = 0; i < DifficultyPresetsManager.max_money; i++)
+        {
+            GameObject to_spawn = SpawnManager.available_money_spawn_zones[Random.Range(0, SpawnManager.available_money_spawn_zones.Count)];
+            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+            Instantiate(SpawnManager.money_spawn[Random.Range(0, SpawnManager.money_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+        }
         //enemies
         for (int i = 0; i < DifficultyPresetsManager.max_enemy; i++)
         {
@@ -231,9 +243,19 @@ public class RandomLevel : MonoBehaviour
         {
             Destroy(spawn_location);
         }
+        foreach (GameObject spawn_location in SpawnManager.available_metal_spawn_zones)
+        {
+            Destroy(spawn_location);
+        }
+        foreach (GameObject spawn_location in SpawnManager.available_money_spawn_zones)
+        {
+            Destroy(spawn_location);
+        }
         SpawnManager.available_health_spawn_zones.Clear();
         SpawnManager.available_enemies_spawn_zones.Clear();
         SpawnManager.available_stone_spawn_zones.Clear();
         SpawnManager.available_wood_spawn_zones.Clear();
+        SpawnManager.available_metal_spawn_zones.Clear();
+        SpawnManager.available_money_spawn_zones.Clear();
     }
 }
