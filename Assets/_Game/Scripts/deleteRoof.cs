@@ -5,16 +5,17 @@ using UnityEngine;
 public class DeleteRoof : MonoBehaviour
 {
     private int length;
+    public string concerned_tag = "Inside";
     private List<GameObject> lista = new List<GameObject>();
     
     private void Start()
     {
-        length = GameObject.FindGameObjectsWithTag("Inside").Length;
+        length = GameObject.FindGameObjectsWithTag(concerned_tag).Length;
         for (int i = 0; i < length; i++)
-            lista.Add(GameObject.FindGameObjectsWithTag("Inside")[i]);
+            lista.Add(GameObject.FindGameObjectsWithTag(concerned_tag)[i]);
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerStay(Collider collider)
     {
         print(collider.tag);
 

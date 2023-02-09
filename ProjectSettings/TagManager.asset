@@ -8,6 +8,9 @@ TagManager:
   - Inside
   - Player_component
   - Enemy
+  - GroundFloor
+  - FirstFloor
+  - FirstFloorGround
   layers:
   - Default
   - TransparentFX
