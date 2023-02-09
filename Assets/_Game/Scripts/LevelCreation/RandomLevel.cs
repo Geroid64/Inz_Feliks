@@ -16,7 +16,6 @@ public class RandomLevel : MonoBehaviour
     public int step = 10;
 
     List<int[]> available_entropies = new List<int[]>();
-    List<GameObject> placed_tiles = new List<GameObject>();
     Dictionary<string, string[]> all_nodes = new Dictionary<string, string[]>();
 
     GameObject randix;
@@ -107,10 +106,8 @@ public class RandomLevel : MonoBehaviour
             info_grid[x, y] = new string[] { tile_string };
             bool_grid[x, y] = true;
             GameObject spawn_place = to_spawn.Find(tile => string.Equals(tile.GetComponent<LevelSegment>().tile_name, tile_string));
-            //Debug.Log("WYBRANY TILE: " + spawn_place.GetComponent<LevelSegment>().tile_name +" I jego indeksy "+x+" "+y);
             GameObject new_tile = Instantiate(spawn_place, new Vector3(x * step, 0, y * step), Quaternion.identity);
 
-            placed_tiles.Add(new_tile);
         }
     }
 
@@ -189,12 +186,9 @@ public class RandomLevel : MonoBehaviour
         //health
         for (int i = 0; i < DifficultyPresetsManager.max_health; i++)
         {
-            Debug.Log("GGGGGG==================");
             int count = SpawnManager.available_health_spawn_zones.Count;
-            GameObject to_spawn = SpawnManager.available_health_spawn_zones[Random.Range(0, count)];//tu jest prblem?
-                                                                                                    //tak tu jest problem
+            GameObject to_spawn = SpawnManager.available_health_spawn_zones[Random.Range(0, count)];
             Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
-            Debug.Log("GGGG ROTACJA" + roton);
             Instantiate(SpawnManager.health_spawn[Random.Range(0, SpawnManager.health_spawn.Count-1)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
         //resources
@@ -210,6 +204,7 @@ public class RandomLevel : MonoBehaviour
             Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
             Instantiate(SpawnManager.wood_spawn[Random.Range(0, SpawnManager.wood_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
+        //enemies
         for (int i = 0; i < DifficultyPresetsManager.max_enemy; i++)
         {
             GameObject to_spawn = SpawnManager.available_enemies_spawn_zones[Random.Range(0, SpawnManager.available_enemies_spawn_zones.Count)];

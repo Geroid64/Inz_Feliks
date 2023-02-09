@@ -10,17 +10,15 @@ public class PlayerMovement : MonoBehaviour
     public float smooth = 0.1f;
     public float smooth_velocity;
     public Camera cam;
-    Vector3 forward, right, down,screen_size;
+    Vector3 z_axis, x_axis, gravity;
 
     private void Start()
     {
-        forward = cam.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
+        z_axis = cam.transform.forward;
+        z_axis.y = 0;
         controller.detectCollisions = false;
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
-        down.y = -1;
-        screen_size = new Vector3(Screen.width, Screen.height, 0);
+        x_axis = Quaternion.Euler(new Vector3(0, 90, 0)) * cam.transform.forward;
+        gravity.y = -1;
     }
 
     void Update()
@@ -47,16 +45,16 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (!controller.isGrounded)
-                iso_dir = horizontal * right + vertical * forward + down;
+                iso_dir = horizontal * x_axis + vertical * z_axis + gravity;
             else
-                iso_dir = horizontal * right + vertical * forward;
+                iso_dir = horizontal * x_axis + vertical * z_axis;
 
             if (iso_dir.magnitude >= 0.1f)
             {
                 if (sprint == true)
-                    controller.Move(iso_dir * (speed + 5) * Time.deltaTime);
+                    controller.Move(iso_dir.normalized * (speed + 5) * Time.deltaTime);
                 else
-                    controller.Move(iso_dir * speed * Time.deltaTime);
+                    controller.Move(iso_dir.normalized * speed * Time.deltaTime);
             }
         }
 

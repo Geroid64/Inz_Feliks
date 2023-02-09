@@ -42,8 +42,6 @@ public class CinematicZone : MonoBehaviour
             float t = Mathf.Clamp01(elapsed / time);
             cam.orthographicSize = Mathf.Lerp(original, size, t);
 
-            //Debug.Log("KKKKKKKK " + elapsed + " : " + cam.orthographicSize);
-
             yield return null;
         }
 

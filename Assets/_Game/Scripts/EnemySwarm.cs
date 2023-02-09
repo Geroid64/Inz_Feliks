@@ -36,7 +36,6 @@ public class EnemySwarm : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) < 5)
         {
-            Debug.Log("TTTTTTTTTTTTTTTTT" + Vector3.Distance(player.transform.position, transform.position));
             if(damage_bool == false)
             {
                 damage_bool = true;
@@ -100,10 +99,11 @@ public class EnemySwarm : MonoBehaviour
     {
         while (wander_bool)
         {
+            
             direction.x = Random.Range(transform.position.x - offset, transform.position.x + offset);
             direction.z = Random.Range(transform.position.z - offset, transform.position.z + offset);
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(Random.Range(1.5f,3.5f));
         }
     }
     IEnumerator Attack()

@@ -46,7 +46,6 @@ public class DifficultyPresetsManager : MonoBehaviour
                 break;
         }
 
-        //TO CHANGE INTO DIFFERENT BIOMES
         switch (resource_spread[resource_spread_index])
         {
             case "stone":

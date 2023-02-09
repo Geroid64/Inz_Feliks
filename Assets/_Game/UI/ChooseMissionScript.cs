@@ -95,7 +95,6 @@ public class ChooseMissionScript : MonoBehaviour
         pop_up_text.enabled = false;
     }
 
-    #region Difficulty
     public void ChangeDifficultyPresets(bool change)
     {
         if (is_choosing_mission)
@@ -125,8 +124,7 @@ public class ChooseMissionScript : MonoBehaviour
         }
 
     }
-    #endregion
-    #region Sector
+
     public void ChangeSectorPresets(bool change)
     {
         if (is_choosing_mission)
@@ -155,7 +153,6 @@ public class ChooseMissionScript : MonoBehaviour
             UIUpdateMissionLabel();
         }
     }
-    #endregion
 
     public void RandomPresets()
     {
