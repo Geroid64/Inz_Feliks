@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
     VisualElement return_background;
     public TMP_Text credits_text;
     public GameObject credits_game_object;
+    public GameObject tutorial_game_obejct;
     Coroutine routine;
     Vector3 credits_initial;
     //names
@@ -42,11 +43,12 @@ public class MainMenuScript : MonoBehaviour
         return_background.SetEnabled(false);
         return_button.SetEnabled(false);
         return_background.visible = false;
-
+        tutorial_game_obejct.SetActive(false);
     }
 
     public void ShowCredits()
     {
+        tutorial_game_obejct.SetActive(false);
         return_background.visible = true;
         return_background.SetEnabled(true);
         return_button.SetEnabled(true);
@@ -55,6 +57,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void HideCredits()
     {
+
         return_background.SetEnabled(false);
         return_button.SetEnabled(false);
         return_background.visible = false;
@@ -65,7 +68,11 @@ public class MainMenuScript : MonoBehaviour
     
     public void ShowTutorial()
     {
-
+        if (routine!=null)
+        {
+            HideCredits();
+        }
+        tutorial_game_obejct.SetActive(true);
     }
 
     public void StartNewGame()
