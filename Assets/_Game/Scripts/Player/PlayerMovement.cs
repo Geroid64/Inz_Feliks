@@ -5,34 +5,27 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public static bool can_move = true;
     public static float speed = 6f;
-    public float smooth = 0.1f;
-    public float smooth_velocity;
+    public float stepson;
     public Camera cam;
-    Vector3 z_axis, x_axis, gravity;
+
+        float gravity;
+
 
     private void Start()
     {
-        z_axis = cam.transform.forward;
-        z_axis.y = 0;
-        controller.detectCollisions = false;
-        z_axis = Vector3.Normalize(z_axis);
-        x_axis = Quaternion.Euler(new Vector3(0, 90, 0)) * cam.transform.forward;
-        gravity.y = -1;
+        gravity = -0.5f;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (can_move)
-        {
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             bool sprint = Input.GetKey(KeyCode.LeftShift);
 
 
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-            Vector3 iso_dir = new Vector3();
+            Vector3 iso_dir;
 
             Plane plane = new Plane(Vector3.up, transform.position);
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -46,22 +39,17 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (!controller.isGrounded)
-            {
-                Debug.Log("nie dotyka ziemi");
-                iso_dir = horizontal * x_axis + vertical * z_axis + gravity;
-            }
+                    iso_dir = new Vector3(horizontal, gravity, vertical);
             else
-                iso_dir = horizontal * x_axis + vertical * z_axis;
-
-            if (iso_dir.magnitude >= 0.1f)
+                iso_dir = new Vector3(horizontal ,0 ,vertical);
+            iso_dir = Quaternion.Euler(new Vector3(0, 45, 0)) * iso_dir;
+            if (iso_dir.magnitude >= stepson)
             {
                 if (sprint == true)
                     controller.Move(iso_dir * (speed + 5) * Time.deltaTime);
                 else
                     controller.Move(iso_dir * speed * Time.deltaTime);
             }
-        }
-
     }
 
 

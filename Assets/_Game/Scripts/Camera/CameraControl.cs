@@ -22,7 +22,7 @@ public class CameraControl : MonoBehaviour
         camera_player_offset = transform.position - player.transform.position;
     }
 
-    void LateUpdate()
+    void Update()
     {
         mouse_location = Input.mousePosition;
 
