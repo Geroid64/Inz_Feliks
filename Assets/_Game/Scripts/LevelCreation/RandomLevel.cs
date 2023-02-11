@@ -192,36 +192,55 @@ public class RandomLevel : MonoBehaviour
             Instantiate(SpawnManager.health_spawn[Random.Range(0, SpawnManager.health_spawn.Count-1)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
         }
         //resources
-        for (int i = 0; i < DifficultyPresetsManager.max_stone; i++)
+
+        if (SpawnManager.available_wood_spawn_zones.Any())
         {
-            GameObject to_spawn = SpawnManager.available_stone_spawn_zones[Random.Range(0, SpawnManager.available_stone_spawn_zones.Count)];
-            Quaternion roton = Quaternion.Euler(new Vector3(0, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.stone_spawn[Random.Range(0, SpawnManager.stone_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            for (int i = 0; i < DifficultyPresetsManager.max_wood; i++)
+            {
+                GameObject to_spawn = SpawnManager.available_wood_spawn_zones[Random.Range(0, SpawnManager.available_wood_spawn_zones.Count)];
+                Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+                Instantiate(SpawnManager.wood_spawn[Random.Range(0, SpawnManager.wood_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            }
         }
-        for (int i = 0; i < DifficultyPresetsManager.max_wood; i++)
+
+        if (SpawnManager.available_stone_spawn_zones.Any())
         {
-            GameObject to_spawn = SpawnManager.available_wood_spawn_zones[Random.Range(0, SpawnManager.available_wood_spawn_zones.Count)];
-            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.wood_spawn[Random.Range(0, SpawnManager.wood_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            for (int i = 0; i < DifficultyPresetsManager.max_stone; i++)
+            {
+                GameObject to_spawn = SpawnManager.available_stone_spawn_zones[Random.Range(0, SpawnManager.available_stone_spawn_zones.Count)];
+                Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+                Instantiate(SpawnManager.stone_spawn[Random.Range(0, SpawnManager.stone_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            }
         }
-        for (int i = 0; i < DifficultyPresetsManager.max_metal; i++)
+
+
+        if (SpawnManager.available_metal_spawn_zones.Any())
         {
-            GameObject to_spawn = SpawnManager.available_metal_spawn_zones[Random.Range(0, SpawnManager.available_metal_spawn_zones.Count)];
-            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.metal_spawn[Random.Range(0, SpawnManager.metal_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            for (int i = 0; i < DifficultyPresetsManager.max_metal; i++)
+            {
+                GameObject to_spawn = SpawnManager.available_metal_spawn_zones[Random.Range(0, SpawnManager.available_metal_spawn_zones.Count)];
+                Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+                Instantiate(SpawnManager.metal_spawn[Random.Range(0, SpawnManager.metal_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            }
         }
-        for (int i = 0; i < DifficultyPresetsManager.max_money; i++)
+        if (SpawnManager.available_money_spawn_zones.Any())
         {
-            GameObject to_spawn = SpawnManager.available_money_spawn_zones[Random.Range(0, SpawnManager.available_money_spawn_zones.Count)];
-            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.money_spawn[Random.Range(0, SpawnManager.money_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            for (int i = 0; i < DifficultyPresetsManager.max_money; i++)
+            {
+                GameObject to_spawn = SpawnManager.available_money_spawn_zones[Random.Range(0, SpawnManager.available_money_spawn_zones.Count)];
+                Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+                Instantiate(SpawnManager.money_spawn[Random.Range(0, SpawnManager.money_spawn.Count)], new Vector3(to_spawn.transform.position.x, 0, to_spawn.transform.position.z), roton);
+            }
         }
         //enemies
-        for (int i = 0; i < DifficultyPresetsManager.max_enemy; i++)
+        if (SpawnManager.available_enemies_spawn_zones.Any())
         {
-            GameObject to_spawn = SpawnManager.available_enemies_spawn_zones[Random.Range(0, SpawnManager.available_enemies_spawn_zones.Count)];
-            Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
-            Instantiate(SpawnManager.enemies_spawn[Random.Range(0, SpawnManager.enemies_spawn.Count)], new Vector3(to_spawn.transform.position.x, 1, to_spawn.transform.position.z), roton);
+            for (int i = 0; i < DifficultyPresetsManager.max_enemy; i++)
+            {
+                GameObject to_spawn = SpawnManager.available_enemies_spawn_zones[Random.Range(0, SpawnManager.available_enemies_spawn_zones.Count)];
+                Quaternion roton = Quaternion.Euler(new Vector3(90, Random.Range(-180, 180), 0));
+                Instantiate(SpawnManager.enemies_spawn[Random.Range(0, SpawnManager.enemies_spawn.Count)], new Vector3(to_spawn.transform.position.x, 1, to_spawn.transform.position.z), roton);
+            }
         }
     }
 
