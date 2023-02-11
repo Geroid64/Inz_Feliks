@@ -3348,15 +3348,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1758916972}
-  - {fileID: 322637849}
-  - {fileID: 915531009}
-  - {fileID: 1171842465}
-  - {fileID: 1875019155}
-  - {fileID: 346959792}
-  - {fileID: 1145251649}
-  - {fileID: 1748766770}
-  - {fileID: 711969152}
+  - {fileID: 1979906735}
+  - {fileID: 1978414111}
   m_Father: {fileID: 394725850}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4158,12 +4151,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 681323540}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
+  fund_name: 'water '
+  cost: 14000000460000001400000032000000
   gives_buff: 1
-  is_res: 0
-  buff_type: speed
-  buff_amount: 8
+  is_res: 1
+  buff_type: stone
+  buff_amount: 10
   ui_build: {fileID: 292687755}
   ui_player: {fileID: 512648089}
 --- !u!114 &292687755
@@ -4193,8 +4186,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 2.6500003, z: -0}
+  m_Radius: 2.2808301
+  m_Center: {x: -0, y: 1.0990334, z: 0}
 --- !u!4 &294311081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4863249073784554, guid: 93a098cd0b1bf9f4d9fdd0930309dd68, type: 3}
@@ -4911,12 +4904,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 1379874857}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
-  gives_buff: 0
+  fund_name: kitchen
+  cost: 500000003c0000003c00000096000000
+  gives_buff: 1
   is_res: 0
   buff_type: speed
-  buff_amount: 8
+  buff_amount: 3
   ui_build: {fileID: 314782889}
   ui_player: {fileID: 512648089}
 --- !u!135 &314782891
@@ -5104,7 +5097,7 @@ Transform:
   - {fileID: 2074286535}
   - {fileID: 1838600328}
   - {fileID: 2004161356}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -24.644, z: 0}
 --- !u!1001 &326952015
@@ -5641,7 +5634,7 @@ Transform:
   m_Children:
   - {fileID: 1137905313}
   - {fileID: 1809284427}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -36.51, z: 0}
 --- !u!1001 &347702750
@@ -9696,11 +9689,11 @@ MonoBehaviour:
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 431335248}
   fund_name: shield
-  cost: 00000000050000000000000000000000
+  cost: 0f000000320000001e00000064000000
   gives_buff: 1
   is_res: 0
   buff_type: speed
-  buff_amount: 8
+  buff_amount: 2
   ui_build: {fileID: 531231244}
   ui_player: {fileID: 512648089}
 --- !u!135 &531231246
@@ -14045,7 +14038,7 @@ Transform:
   - {fileID: 610617918}
   - {fileID: 1710076500}
   - {fileID: 1754639019}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -4.026, z: 0}
 --- !u!4 &717141108 stripped
@@ -15886,12 +15879,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 179324431}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
-  gives_buff: 0
-  is_res: 0
-  buff_type: speed
-  buff_amount: 8
+  fund_name: orange trees
+  cost: 50000000140000003200000050000000
+  gives_buff: 1
+  is_res: 1
+  buff_type: wood
+  buff_amount: 20
   ui_build: {fileID: 827972152}
   ui_player: {fileID: 512648089}
 --- !u!135 &827972154
@@ -17735,7 +17728,7 @@ Transform:
   - {fileID: 1933417692}
   - {fileID: 1212232713}
   - {fileID: 1561817950}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -31.869, z: 0}
 --- !u!1001 &917300447
@@ -21809,7 +21802,7 @@ Transform:
   m_Children:
   - {fileID: 1415516576}
   - {fileID: 51714618}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -95.928, z: 0}
 --- !u!1001 &1148843782
@@ -22136,7 +22129,7 @@ Transform:
   - {fileID: 159620436}
   - {fileID: 4049610}
   - {fileID: 2113579821}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -31.869, z: 0}
 --- !u!4 &1175615362 stripped
@@ -22653,12 +22646,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 1436094747}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
+  fund_name: carrot field
+  cost: 00000000320000001e00000064000000
   gives_buff: 1
   is_res: 0
   buff_type: speed
-  buff_amount: 8
+  buff_amount: 2
   ui_build: {fileID: 1224316288}
   ui_player: {fileID: 512648089}
 --- !u!114 &1224316288
@@ -23337,12 +23330,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 1121171610}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
-  gives_buff: 0
-  is_res: 0
-  buff_type: speed
-  buff_amount: 8
+  fund_name: cherry trees
+  cost: 32000000500000001400000050000000
+  gives_buff: 1
+  is_res: 1
+  buff_type: stone
+  buff_amount: 20
   ui_build: {fileID: 1278665280}
   ui_player: {fileID: 512648089}
 --- !u!114 &1278665280
@@ -27119,12 +27112,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 1640822835}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
-  gives_buff: 0
-  is_res: 0
-  buff_type: speed
-  buff_amount: 8
+  fund_name: storage
+  cost: 1e000000140000004600000028000000
+  gives_buff: 1
+  is_res: 1
+  buff_type: metal
+  buff_amount: 10
   ui_build: {fileID: 1527539039}
   ui_player: {fileID: 512648089}
 --- !u!135 &1527539041
@@ -27719,6 +27712,178 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 42066dedd6cba477392b0f6da22faa64, type: 3}
   m_PrefabInstance: {fileID: 952233012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1576671839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1576671840}
+  - component: {fileID: 1576671842}
+  - component: {fileID: 1576671841}
+  m_Layer: 0
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1576671840
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576671839}
+  m_LocalRotation: {x: -0.23911758, y: -0.3696438, z: -0.099045746, w: 0.89239913}
+  m_LocalPosition: {x: 0, y: 0, z: -0.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1979906735}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -30, y: -45, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.21, y: 1.48}
+  m_SizeDelta: {x: 20, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1576671841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576671839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '[F]'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 10
+  m_fontSizeBase: 10
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 6.3252325, y: 0, z: 5.9651833, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1576671842}
+  m_maskType: 0
+--- !u!23 &1576671842
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576671839}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &1581783006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31226,12 +31391,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 564902668}
-  fund_name: water
-  cost: 00000000050000000000000000000000
-  gives_buff: 0
+  fund_name: basic furniture
+  cost: 1e000000140000001e00000019000000
+  gives_buff: 1
   is_res: 0
   buff_type: speed
-  buff_amount: 8
+  buff_amount: 1
   ui_build: {fileID: 1734125452}
   ui_player: {fileID: 512648089}
 --- !u!114 &1734125452
@@ -31557,7 +31722,7 @@ Transform:
   m_Children:
   - {fileID: 2050638531}
   - {fileID: 1660660112}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -155.239, z: 0}
 --- !u!1 &1749873852 stripped
@@ -31890,7 +32055,7 @@ Transform:
   - {fileID: 666996233}
   - {fileID: 1594594016}
   - {fileID: 475147851}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -24.644, z: 0}
 --- !u!1001 &1761927583
@@ -32688,12 +32853,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 1031911767}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
+  fund_name: wood work
+  cost: 460000000f000000140000001e000000
   gives_buff: 1
   is_res: 1
   buff_type: wood
-  buff_amount: 30
+  buff_amount: 10
   ui_build: {fileID: 1788863233}
   ui_player: {fileID: 512648089}
 --- !u!114 &1788863233
@@ -33131,12 +33296,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 636303685}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
-  gives_buff: 0
-  is_res: 0
-  buff_type: speed
-  buff_amount: 8
+  fund_name: apple trees
+  cost: 32000000140000005000000050000000
+  gives_buff: 1
+  is_res: 1
+  buff_type: metal
+  buff_amount: 20
   ui_build: {fileID: 1811696033}
   ui_player: {fileID: 512648089}
 --- !u!114 &1811696033
@@ -34550,7 +34715,7 @@ Transform:
   m_Children:
   - {fileID: 1271478863}
   - {fileID: 1754366165}
-  m_Father: {fileID: 225690513}
+  m_Father: {fileID: 1978414111}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1877200737 stripped
@@ -36963,6 +37128,167 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7110966a22a1bd74c894def7bbb4b8cb, type: 3}
   m_PrefabInstance: {fileID: 1351073428}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978414110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978414111}
+  m_Layer: 0
+  m_Name: FlowerLook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978414111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978414110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1758916972}
+  - {fileID: 322637849}
+  - {fileID: 915531009}
+  - {fileID: 1171842465}
+  - {fileID: 1875019155}
+  - {fileID: 346959792}
+  - {fileID: 1145251649}
+  - {fileID: 1748766770}
+  - {fileID: 711969152}
+  m_Father: {fileID: 225690513}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1979906734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 225690513}
+    m_Modifications:
+    - target: {fileID: 100004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_Name
+      value: panelCourtains (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 33.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.32164136
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9468616
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -142.476
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+--- !u!4 &1979906735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+  m_PrefabInstance: {fileID: 1979906734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1979906736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 0af7ed3cb5224429c90a9bd27ecf80e6, type: 3}
+  m_PrefabInstance: {fileID: 1979906734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979906737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979906736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 0c19e64001225b1409f4b2b58b13f436, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9ba330dfdd64093448e54a4070f03306, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &1979906738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979906736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0df36e37960f841b2bd868c340ed18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 557929369}
+  to_spawn: {fileID: 1978414110}
+  resources: {fileID: 2516698}
+  player_health: {fileID: 2516697}
+  pop_up_text: {fileID: 1576671841}
+  fund_name: flowers
+  cost: 3c00000050000000500000002c010000
+  gives_buff: 0
+  is_res: 0
+  buff_type: speed
+  buff_amount: 0
+  ui_build: {fileID: 1979906737}
+  ui_player: {fileID: 512648089}
+--- !u!135 &1979906739
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979906736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0.64071894, z: -0}
 --- !u!1001 &1980308517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38384,12 +38710,12 @@ MonoBehaviour:
   resources: {fileID: 2516698}
   player_health: {fileID: 2516697}
   pop_up_text: {fileID: 1983454629}
-  fund_name: shield
-  cost: 00000000050000000000000000000000
+  fund_name: potato field
+  cost: 00000000320000001400000064000000
   gives_buff: 1
   is_res: 0
   buff_type: speed
-  buff_amount: 8
+  buff_amount: 2
   ui_build: {fileID: 2043499876}
   ui_player: {fileID: 512648089}
 --- !u!135 &2043499878
@@ -38403,8 +38729,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.1499996
-  m_Center: {x: 0, y: 2.6500003, z: -0}
+  m_Radius: 3.3224406
+  m_Center: {x: 0, y: 1.5347574, z: -0}
 --- !u!1001 &2049175852
 PrefabInstance:
   m_ObjectHideFlags: 0

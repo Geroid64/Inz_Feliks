@@ -145,4 +145,4 @@ MonoBehaviour:
   time: 0.3
   resource:
   - {fileID: 273966179326039842, guid: 4107feb6cfe1ae548a8fe7e26dc8b93d, type: 3}
-  node_life: 10
+  node_life: 8
