@@ -1357,7 +1357,6 @@ MonoBehaviour:
   can_join:
   - c
   - d
-  - e
 --- !u!1 &4631783929023487098
 GameObject:
   m_ObjectHideFlags: 0
