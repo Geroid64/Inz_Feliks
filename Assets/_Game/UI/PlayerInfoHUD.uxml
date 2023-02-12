@@ -15,21 +15,21 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="TimeElement" style="top: 20%; max-height: 25px; min-height: 25px; background-color: rgba(53, 25, 5, 0.53); align-items: flex-end; justify-content: center; min-width: 40%; max-width: 40%; border-bottom-left-radius: 7px;">
-            <ui:Label text="00:00" display-tooltip-when-elided="true" name="MissionTimeLabel" style="right: 5%; font-size: 14px; color: rgb(36, 21, 0); -unity-font-style: bold;" />
+            <ui:Label text="00:00" display-tooltip-when-elided="true" name="MissionTimeLabel" style="right: 5%; font-size: 14px; color: rgb(36, 21, 0); -unity-font-style: bold; -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="BottomElement" style="height: 1080px; top: 60%; max-height: 40%; min-height: 40%; bottom: 0;">
         <ui:VisualElement name="BottomLeftElement" style="max-height: 100%; min-height: 100%; max-width: 50%; min-width: 50%; height: 0; width: 0; left: 0; right: 50%; top: 0; bottom: 0; align-items: flex-end; flex-direction: row; justify-content: flex-start; position: absolute; background-color: rgba(0, 0, 0, 0);">
             <ui:VisualElement name="ResourceAmountElement" style="max-height: 70%; min-height: 70%; justify-content: flex-end; flex-direction: column-reverse; align-items: flex-start; max-width: 25%; min-width: 25%; background-color: rgba(250, 189, 107, 0.91); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 7px; border-bottom-right-radius: 0;">
-                <ui:Label text="Money: 0" display-tooltip-when-elided="true" name="MoneyAmountLabel" style="max-width: 100%; min-width: 100%; font-size: 18px; margin-left: 5%; top: 0; bottom: auto; -unity-text-align: upper-left; -unity-font-style: bold; color: rgb(56, 35, 6);" />
-                <ui:Label text="Stone: 0" display-tooltip-when-elided="true" name="StoneAmountLabel" style="font-size: 18px; max-width: 100%; min-width: 100%; margin-left: 5%; top: 4%; -unity-font-style: bold; color: rgb(56, 35, 6);" />
-                <ui:Label text="Wood: 0" display-tooltip-when-elided="true" name="WoodAmountLabel" style="font-size: 18px; max-width: 100%; min-width: 100%; margin-left: 5%; top: 6%; -unity-font-style: bold; color: rgb(56, 35, 6);" />
-                <ui:Label text="Metal: 0" display-tooltip-when-elided="true" name="MetalAmountLabel" style="max-width: 100%; min-width: 100%; font-size: 18px; margin-left: 5%; top: 8%; -unity-font-style: bold; color: rgb(56, 35, 6);" />
+                <ui:Label text="Money: 0" display-tooltip-when-elided="true" name="MoneyAmountLabel" style="max-width: 100%; min-width: 100%; font-size: 18px; margin-left: 5%; top: 0; bottom: auto; -unity-text-align: upper-left; -unity-font-style: bold; color: rgb(56, 35, 6); -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
+                <ui:Label text="Stone: 0" display-tooltip-when-elided="true" name="StoneAmountLabel" style="font-size: 18px; max-width: 100%; min-width: 100%; margin-left: 5%; top: 4%; -unity-font-style: bold; color: rgb(56, 35, 6); -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
+                <ui:Label text="Wood: 0" display-tooltip-when-elided="true" name="WoodAmountLabel" style="font-size: 18px; max-width: 100%; min-width: 100%; margin-left: 5%; top: 6%; -unity-font-style: bold; color: rgb(56, 35, 6); -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
+                <ui:Label text="Metal: 0" display-tooltip-when-elided="true" name="MetalAmountLabel" style="max-width: 100%; min-width: 100%; font-size: 18px; margin-left: 5%; top: 8%; -unity-font-style: bold; color: rgb(56, 35, 6); -unity-font: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght&apos;); -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
             </ui:VisualElement>
             <ui:VisualElement name="AmmoElement" style="max-height: 15%; min-height: 15%; max-width: 25%; min-width: 25%; background-color: rgba(255, 159, 28, 0.92); height: 39px; width: 84px; justify-content: flex-start; align-items: stretch; flex-grow: 0; flex-direction: row; margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 7px; border-bottom-right-radius: 0;">
-                <ui:Label text="00" display-tooltip-when-elided="true" name="MagazineLabel" style="font-size: 18px; -unity-font-style: bold; margin-left: 10px; color: rgb(56, 35, 6);" />
+                <ui:Label text="00" display-tooltip-when-elided="true" name="MagazineLabel" style="font-size: 18px; -unity-font-style: bold; margin-left: 10px; color: rgb(56, 35, 6); -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
                 <ui:Label text="/" display-tooltip-when-elided="true" style="font-size: 18px; -unity-font-style: bold; color: rgb(56, 35, 6);" />
-                <ui:Label text="000" display-tooltip-when-elided="true" name="AmmoLabel" style="font-size: 18px; margin-bottom: 0; -unity-font-style: bold; color: rgb(56, 35, 6);" />
+                <ui:Label text="000" display-tooltip-when-elided="true" name="AmmoLabel" style="font-size: 18px; margin-bottom: 0; -unity-font-style: bold; color: rgb(56, 35, 6); -unity-font-definition: resource(&apos;Fonts &amp; Materials/Comfortaa-VariableFont_wght SDF&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
