@@ -25,12 +25,13 @@ public class MissionTimer : MonoBehaviour
     {
         while (timer_activated)
         {
-                time_in_seconds--;
-                minutes = time_in_seconds / 60;
-                seconds = time_in_seconds % 60;
+            time_in_seconds--;
+            minutes = Mathf.Floor(time_in_seconds / 60);
+            seconds = Mathf.Floor(time_in_seconds % 60);
+            player_hud.UIUpdateTimeLabel("MissionTimeLabel", minutes, seconds);
             if (time_in_seconds >= 0)
             {
-                player_hud.UIUpdateTimeLabel("MissionTimeLabel", minutes, seconds);
+
                 yield return new WaitForSeconds(1);
             }
             else

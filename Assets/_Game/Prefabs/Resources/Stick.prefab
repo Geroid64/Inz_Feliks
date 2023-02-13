@@ -2014,7 +2014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec1736e835792445be888a1670d2f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource_amount: 5
+  resource_amount: 1
   resource_type: wood
 --- !u!54 &6557652500576725032
 Rigidbody:
