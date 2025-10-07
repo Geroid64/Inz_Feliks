@@ -352,8 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6393608195152446909}
-  smooth: 0.05
-  smooth_velocity: 0
+  stepson: 0.1
   cam: {fileID: 0}
 --- !u!143 &6393608195152446909
 CharacterController:

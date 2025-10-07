@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public static float speed = 6f;
+    public static float speed = 11f;
     public float stepson;
     public Camera cam;
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             if (iso_dir.magnitude >= stepson)
             {
                 if (sprint == true)
-                    controller.Move(iso_dir * (speed + 5) * Time.deltaTime);
+                    controller.Move(iso_dir * (speed + 2) * Time.deltaTime);
                 else
                     controller.Move(iso_dir * speed * Time.deltaTime);
             }
